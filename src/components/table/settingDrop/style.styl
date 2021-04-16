@@ -1,0 +1,122 @@
+@import "../../static/stylus/animate/selectDownUpExtend.styl"
+
+.m-header-setting
+  position absolute
+  z-index 12
+  background-color var(--theme)
+  border 1px solid var(--grey-200)
+  border-radius 4px
+  box-shadow var(--box-shadow-bottom)
+  width 240px
+  //line-height normal
+  font-size 0
+  outline none
+  &:hover
+    .m-header-setting-content
+      overflow-y auto
+.m-header-setting-content
+  position relative
+  padding-top 8px
+  padding-bottom 8px
+  border-bottom 1px solid var(--grey-200)
+  max-height 412px
+  overflow hidden
+.m-header-setting-item
+  position relative
+  display flex
+  align-items center
+  padding-left 8px
+  padding-right 6px
+  height 38px
+  transition box-shadow .3s, background-color .3s
+  &::before
+    position absolute
+    left 0
+    top 0
+    content ''
+    background-color transparent
+    width 100%
+    height 2px
+    transition background-color .3s
+.m-header-setting-item-draggable
+  cursor pointer
+.m-header-setting-item-hover
+  box-shadow var(--box-shadow-bottom)
+  cursor move
+  &::before
+    background-color var(--blue-500)
+.m-header-setting-normal
+  &:hover
+    background-color  var(--hover-color-grey)
+    .m-header-setting-shit
+      opacity 1
+      pointer-events auto
+.m-header-setting-disabled
+  cursor not-allowed
+  .m-header-setting-words
+    .m-header-setting-text
+      color var(--grey-400)
+    .m-header-setting-shit
+      display none
+
+.m-header-setting-checkbox
+  position relative
+  width 32px
+.m-header-setting-shit
+  position relative
+  display inline-block
+  width 16px
+  height 16px
+  opacity 0
+  vertical-align middle
+  pointer-events none
+  transition opacity .3s
+  &::after
+    position absolute
+    left 0
+    top 0
+    background none
+    opacity 0
+    content ''
+    width 100%
+    height 100%
+  &:hover
+    svg
+      g
+        fill var(--blue-500)
+  svg
+    width 16px
+    height @width
+    g
+      transition fill .3s
+.m-header-setting-words
+  flex 1
+  display flex
+  align-items center
+  justify-content space-between
+  padding-left 8px
+  line-height 1
+  white-space nowrap
+  text-overflow ellipsis
+  overflow hidden
+  .m-header-setting-text
+    color var(--grey-900)
+    font-size 14px
+    user-select none
+
+.m-header-setting-handle
+  display flex
+  align-items center
+  justify-content space-between
+  padding 20px 16px 20px 24px
+.m-header-setting-handle-shadow
+  box-shadow var(--box-shadow-top)
+.m-header-setting-default
+  color var(--grey-600)
+  font-size 14px
+  cursor pointer
+  transition color .3s
+  &:hover
+    color var(--blue-500)
+  &:active
+    color var(--blue-600)

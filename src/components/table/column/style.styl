@@ -1,0 +1,58 @@
+.m-table-tr
+  font-size 0
+  .m-table-cell
+    display flex
+    align-items center
+.m-table-tr-thead
+  .m-table-cell
+    height 38px
+  .m-table-cell-text
+    color var(--grey-600)
+    font-size 12px
+.m-table-tr-tbody
+  position relative
+  background-color var(--theme)
+  transition background-color .3s
+  &:hover
+    background-color var(--grey-100)
+  &:not(:first-child)
+    border-top 1px solid var(--grey-200)
+    &:hover
+      border-top-color transparent
+  &:not(:last-child)
+    &:hover
+      .m-table-td
+        position relative
+        border-top transparent
+        &:after
+          position absolute
+          bottom -1px
+          left 0
+          display inline-block
+          width 100%
+          height 1px
+          background-color var(--theme)
+          content ''
+  .m-table-td
+    &:first-child
+      border-top-left-radius 24px
+      border-bottom-left-radius 24px
+    &:last-child
+      border-top-right-radius 24px
+      border-bottom-right-radius 24px
+  .m-table-cell
+    height 48px
+  .m-table-cell-text
+    color var(--grey-900)
+    font-size 14px
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+
+.m-table-td, .m-table-th
+  padding-left 20px
+  padding-right 20px
+.m-table-tr-border
+  .m-table-td, .m-table-th
+    &:not(:last-child)
+      border-right 1px solid var(--grey-200)

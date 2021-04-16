@@ -1,0 +1,51 @@
+.m-table
+  width 100%
+  height 100%
+.m-table-thead-box
+  position relative
+  background-color var(--grey-50)
+  width 100%
+  height 40px
+  overflow hidden
+.m-table-thead
+  width 100%
+  height 46px
+  overflow-x auto
+  overflow-y hidden
+.m-table-thead-padding
+  padding-right 6px
+.m-table-tbody
+  width 100%
+  overflow auto
+.m-table-tbody-x
+  overflow-x hidden
+.m-table-main-border
+  .m-table-content
+    border-left 1px solid var(--grey-200)
+    border-right 1px solid var(--grey-200)
+  .m-table-thead-box
+    border-top 1px solid var(--grey-200)
+  .m-table-tbody
+    border-bottom 1px solid var(--grey-200)
+
+.m-table-setting
+  position absolute
+  top 0
+  right 0
+  background-color var(--grey-50)
+  display flex
+  align-items center
+  justify-content center
+  width 40px
+  height 40px
+  cursor pointer
+  box-shadow var(--box-shadow-left)
+  svg
+    width 16px
+    height 16px
+    path
+      transition fill .3s
+  &:hover
+    svg
+      path
+        fill var(--blue-500)

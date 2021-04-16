@@ -1,0 +1,71 @@
+.p-tree
+	width: 100%
+	overflow-x: hidden
+	font-size: 0
+.p-tree-node
+	width: 100%
+.p-tree-node-content
+	position: relative
+	width: 100%
+	cursor: pointer
+	&:hover
+		background-color  var(--hover-color-grey)
+.p-tree-node-content-checked
+	background-color: var(--blue-100)
+	.p-tree-node-check
+		.p-tree-node-person-title
+			.p-tree-node-name
+				color: var(--blue-500)
+.p-tree-svg
+	display: inline-block
+	vertical-align: middle
+	width: 24px
+	height: 16px
+	line-height: @width
+	.p-tree-icon-svg
+		vertical-align: text-bottom
+		transform: rotate(90deg)
+		transition: transform 0.3s
+	.p-tree-icon-rotate
+		transform: rotate(180deg)
+.p-tree-node-check
+	display: inline-block
+	vertical-align: middle
+	width: calc(100% - 24px)
+	.p-tree-node-icon
+		vertical-align: middle
+		line-height: 38px
+		margin-right: 8px
+	.p-tree-node-label
+		display: inline-block
+		float: right
+		line-height: 38px
+		font-size: 14px
+		margin-right: 8px
+		vertical-align: middle
+		color: var(--grey-500)
+	.p-tree-node-label-first
+		color: var(--grey-900)
+	.p-tree-node-label-icon
+		line-height: 38px
+		vertical-align: middle
+	.p-tree-node-person-title
+		position: relative
+		display: inline-block
+		vertical-align: middle
+		user-select: none
+		width calc(100% - 32px)
+		.p-tree-node-name
+			height: 38px
+			line-height: @height
+			white-space: nowrap
+			text-overflow: ellipsis
+			overflow: hidden
+			font-size: 14px
+			color: var(--grey-900)
+.p-tree-node-content-disabled
+	cursor: pointer
+	.p-tree-node-name
+		color: var(--grey-400)
+.p-tree-child
+	width: 100%

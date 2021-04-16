@@ -1,0 +1,101 @@
+@import "../static/stylus/animate/slideRightLeft.styl"
+
+.p-drawer-box
+  position fixed
+  right 0
+  top 0
+  z-index 3000
+  display block
+  //min-width 304px
+  //max-width 680px
+  width 100%
+  height 100%
+  transition right .3s
+.p-drawer-shadow
+  position absolute
+  top 0
+  right 0
+  z-index 2999
+  width 100%
+  height 100%
+  opacity 0
+//background-color rosybrown
+.p-drawer-shadow-event
+  pointer-events none
+.p-drawer
+  outline none
+  position absolute
+  right 0
+  top 0
+  background-color var(--theme)
+  box-shadow var(--box-shadow-bottom)
+  min-width 304px
+  max-width 680px
+  height 100%
+  font-size 0
+  z-index 3000
+.p-drawer-title
+  display flex
+  justify-content space-between
+  align-items center
+  position relative
+  padding-left 32px
+  padding-right 32px
+  border-bottom 1px solid var(--grey-300)
+  width 100%
+  height 56px
+  .p-drawer-title-content
+    width calc(100% - 16px)
+    font-size 0
+  .p-drawer-title-icon
+    svg
+      width 16px
+      height @width
+      cursor pointer
+      &:hover
+        path
+          fill var(--blue-500)
+          transition fill .3s
+.p-drawer-content
+  width 100%
+  min-width 304px
+  max-width 680px
+  height calc(100% - 56px)
+  overflow-x hidden
+  overflow-y auto
+  .p-drawer-content-loading
+    padding 16px
+    width 100%
+    text-align center
+    svg
+      width 16px
+      vertical-align middle
+    span
+      vertical-align middle
+      color var(--grey-600)
+      font-size 14px
+.p-drawer-content-bottom
+  height calc(100% - 132px)
+.p-drawer-handle
+  padding 24px 32px 20px
+  background-color var(--theme)
+  width 100%
+.p-drawer-handle-bottom
+  position absolute
+  right 0
+  bottom 0
+  box-shadow var(--box-shadow-top)
+.p-drawer-loading
+  position absolute
+  left 0
+  top 0
+  background-color rgba(255, 255, 255, .8)
+  width 100%
+  height 100%
+  z-index 11
+  .p-drawer-loading-svg
+    margin 50% auto 0
+    width 40px
+    height @width
+.p-loading16px-drawer
+  color var(--grey-400)

@@ -1,0 +1,141 @@
+.p-picker-input
+  position relative
+  display flex
+  align-items center
+  border-width 1px
+  border-style solid
+  border-color var(--grey-400)
+  border-radius 4px
+  height 32px
+  line-height 30px
+  font-size 0
+  cursor pointer
+  transition border .3s
+  user-select none
+  &:hover
+    border-color var(--blue-500)
+.p-picker-input-normal
+  padding-left 12px
+.p-picker-input-tip
+  font-size 14px
+  color var(--grey-400)
+.p-picker-input-trigger
+  justify-content space-around
+.p-picker-input-tip-to
+  width 38px
+  line-height 30px
+  text-align center
+  font-size 14px
+  color var(--grey-500)
+.p-picker-left-box-shadow
+  box-shadow -1px 0 2px 0 rgba(31,35,41,.08)
+.p-picker-svg-box
+  display flex
+  align-items center
+  justify-content center
+  width 40px
+  height 30px
+  svg
+    width 16px
+    height @width
+  .p-picker-clear-svg
+    width 14px
+    height @width
+    z-index 1000
+    &:hover
+      path
+        transition fill .3s
+        fill var(--blue-500)
+.p-picker-input-values
+  line-height 30px
+  font-size 14px
+  color var(--grey-900)
+.p-picker-input-tip-values
+  text-align center
+.p-picker-input-single
+  display flex
+  justify-content space-between
+  width 180px
+  text-align left
+  &.p-picker-input-triangle
+    .p-picker-input-tip,
+    .p-picker-input-values
+      text-align center
+.p-picker-input-tip-single
+  width calc(100% - 40px)
+
+.p-picker-input-tip-double
+  display flex
+  width calc(100% - 40px)
+  .p-picker-input-tip-values
+    width calc(50% - 19px)
+    text-align center
+
+.p-picker-input-alert
+  display flex
+  //margin-top 12px
+  //margin-bottom @margin-top
+  padding-left 12px
+  padding-right 12px
+  border 1px solid var(--blue-500)
+  border-radius 4px
+  width 294px
+  height 32px
+  line-height 30px
+  .p-picker-input-values, .p-picker-input-tip
+    width 100%
+    text-align center
+  .p-picker-input-alert-tip
+    width 116px
+.p-picker-input-alert-picker
+  width 136px
+
+.p-picker-input-alert-shadow
+  position relative
+  &::after
+    position absolute
+    right 0
+    top 1px
+    display block
+    box-shadow -1px 0 2px 0 rgba(31,35,41,.08)
+    width 12px
+    height 30px
+    content ''
+
+.p-picker-ellipsis
+  overflow hidden
+  white-space nowrap
+.p-picker-ellipsis-overflow
+  text-overflow ellipsis
+
+.p-picker-triangle
+  position relative
+  display block
+  padding-left 2px
+  padding-right 2px
+  width 20px
+  height 30px
+  text-align center
+  z-index 10
+  &::after
+    position absolute
+    display block
+    background-color var(--grey-300)
+    width 1px
+    height 16px
+    content ''
+  svg
+    vertical-align middle
+.p-picker-triangle-left
+  &::after
+    top 7px
+    right 0
+.p-picker-triangle-right
+  &::after
+    top 7px
+    left 0
+.p-picker-triangle-disabled
+  cursor not-allowed
+  svg
+    path
+      fill var(--grey-300)

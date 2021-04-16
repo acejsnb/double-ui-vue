@@ -1,0 +1,191 @@
+/* base-color -start */
+:root
+  /* base */
+  --white #fff
+  --black #000
+  --theme var(--white)
+  
+  /* 透明背景色 */
+  --theme-transparency rgba(0, 0, 0, .7)
+  
+  /* 蓝色 */
+  /* input、触发器、按钮在focus时的投影 */
+  --box-shadow-blue (0 0 0 2px rgba(0, 145, 255, .2))
+  
+  /* 灰色 */
+  /* 下拉选择器、按钮盒子相关投影 */
+  /* 向上 */
+  --box-shadow-top (0 -2px 10px rgba(24, 28, 34, 1))
+  /* 向下 */
+  --box-shadow-bottom (0 2px 10px rgba(24, 28, 34, 1))
+  /* 向左 */
+  --box-shadow-left (-2px 0 10px rgba(24, 28, 34, 1))
+  /* 向右 */
+  --box-shadow-right (2px 0 10px rgba(24, 28, 34, 1))
+  
+  /* 箭头相关投影 */
+  /* 向左 */
+  --box-shadow-min-top (-2px 2px 4px rgba(24, 28, 34, 1))
+  /* 向下 */
+  --box-shadow-min-bottom (2px -2px 4px rgba(24, 28, 34, 1))
+  /* 向左 */
+  --box-shadow-min-left (-2px -2px 4px rgba(24, 28, 34, 1))
+  /* 向右 */
+  --box-shadow-min-right (2px 2px 4px rgba(24, 28, 34, 1))
+  
+  /* 向下 */
+  --box-shadow-max-bottom (0 8px 16px 0px rgba(24, 28, 34, 1))
+  
+  /* 带三角形的盒子投影 */
+  /* 向上 */
+  --box-shadow-triangle-top (0 -2px 4px rgba(24, 28, 34, 1))
+  /* 向下 */
+  --box-shadow-triangle-bottom (0 2px 4px rgba(24, 28, 34, 1))
+  /* 向左 */
+  --box-shadow-triangle-left (-2px 0 4px rgba(24, 28, 34, 1))
+  /* 向右 */
+  --box-shadow-triangle-right (2px 0 4px rgba(24, 28, 34, 1))
+  
+  /* 弹窗投影 */
+  --modal-shadow-bottom (0 20px 30px rgba(0, 0, 0, .3))
+  
+  /* popover-tip-bg --grey-900 opacity 0.8 */
+  --popover-tip-bg rgba(235, 238, 245, .8)
+  
+  /* blue */
+  --blue-900 #8ccdff
+  --blue-800 #73c2ff
+  --blue-700 #4db2ff
+  --blue-600 #1a9cff
+  --blue-500 #0091ff
+  --blue-400 #0971c1
+  --blue-300 #105b97
+  --blue-200 #17466d
+  --blue-100 #1d3144
+  --blue-50 #1f2b39
+  
+  /* cyan */
+  --cyan-900 #99deed
+  --cyan-800 #80d6e9
+  --cyan-700 #4cc5e0
+  --cyan-600 #19b5d8
+  --cyan-500 #00add4
+  --cyan-400 #0984a2
+  --cyan-300 #106981
+  --cyan-200 #174e60
+  --cyan-100 #1d333f
+  --cyan-50 #1f2d37
+  
+  /* turquoise */
+  --turquoise-900 #99eee3
+  --turquoise-800 #80eadc
+  --turquoise-700 #4de2ce
+  --turquoise-600 #19dabf
+  --turquoise-500 #00d6b9
+  --turquoise-400 #09a190
+  --turquoise-300 #107d74
+  --turquoise-200 #175a58
+  --turquoise-100 #1d373d
+  --turquoise-50 #1f2f35
+  
+  /* green */
+  --green-900 #ade8a7
+  --green-800 #99e291
+  --green-700 #71d766
+  --green-600 #48cc3a
+  --green-500 #34c724
+  --green-400 #2d9627
+  --green-300 #2a7629
+  --green-200 #27562b
+  --green-100 #22362e
+  --green-50 #222e2e
+  
+  /* lime */
+  --lime-900 #374200
+  --lime-800 #495700
+  --lime-700 #667901
+  --lime-600 #8fac02
+  --lime-500 #b3d600
+  --lime-400 #c3dd40
+  --lime-300 #d2e76a
+  --lime-200 #dfee96
+  --lime-100 #eef6c6
+  --lime-50 #f6fae5
+  
+  /* yellow */
+  --yellow-900 #f3de99
+  --yellow-800 #f0d57f
+  --yellow-700 #eac54c
+  --yellow-600 #e4b519
+  --yellow-500 #e2ad00
+  --yellow-400 #a7840e
+  --yellow-300 #816917
+  --yellow-200 #5b4e20
+  --yellow-100 #34332a
+  --yellow-50 #2a2d2c
+  
+  /* orange */
+  --orange-900 #6b3900
+  --orange-800 #8f4f04
+  --orange-700 #b26206
+  --orange-600 #de7802
+  --orange-500 #f58300
+  --orange-400 #ffa53d
+  --orange-300 #ffba6b
+  --orange-200 #fed4a4
+  --orange-100 #feead2
+  --orange-50 #fff6eb
+  
+  /* red */
+  --red-900 #f3b6b2
+  --red-800 #f0a49f
+  --red-700 #ea7f78
+  --red-600 #e45a52
+  --red-500 #e24940
+  --red-400 #a73e3b
+  --red-300 #813637
+  --red-200 #5b3033
+  --red-100 #342930
+  --red-50 #2a282f
+  
+  /* carmine */
+  --carmine-900 #520a33
+  --carmine-800 #7a0f4b
+  --carmine-700 #9e1361
+  --carmine-600 #c71077
+  --carmine-500 #f01d94
+  --carmine-400 #f14ba9
+  --carmine-300 #f57ac0
+  --carmine-200 #f9aed9
+  --carmine-100 #fdddef
+  --carmine-50 #fef1f8
+  
+  /* purple */
+  --purple-900 #460b46
+  --purple-800 #681268
+  --purple-700 #8c218c
+  --purple-600 #b320b3
+  --purple-500 #d136d1
+  --purple-400 #db66db
+  --purple-300 #e58fe5
+  --purple-200 #efb9ef
+  --purple-100 #f8def8
+  --purple-50 #fceefc
+  
+  /* grey */
+  --grey-900 #ebeef5
+  --grey-800 #333940
+  --grey-700 #454d54
+  --grey-600 #a7abc0
+  --grey-500 #72768d
+  --grey-400 #5d6177
+  --grey-300 #414859
+  --grey-200 #2c323e
+  --grey-100 #1e232b
+  --grey-50 #171b22
+  
+  /* hover-color */
+  --hover-color-blue var(--blue-100)
+  --hover-color-grey var(--grey-100)
+
+/* base-color -end */

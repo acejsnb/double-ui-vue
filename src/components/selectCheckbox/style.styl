@@ -1,0 +1,50 @@
+.p-select-checkbox
+  border-radius 4px
+  width 100%
+  font-size 0
+.p-select-checkbox-item
+  padding-left 16px
+  padding-right 8px
+  width 100%
+  height 38px
+  line-height @height
+  color var(--grey-900)
+  transition background-color.3s
+  font-size 0
+  &:hover
+    background-color  var(--hover-color-grey)
+    .p-select-checkbox-text-ellipsis-start
+      &:before
+        background-color  var(--hover-color-grey)
+  .p-checkbox
+    width 100%
+.p-select-checkbox-disabled
+  .p-select-checkbox-text
+    color var(--grey-400)
+.p-select-checkbox-text
+  display inline-block
+  vertical-align middle
+  width 100%
+  height 100%
+  font-size 14px
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+.p-select-checkbox-text-ellipsis-start
+  position relative
+  &:before
+    position absolute
+    left -1px
+    top -1px
+    display inline-block
+    background-color var(--theme)
+    width 12px
+    height 100%
+    content '...'
+    font-size 14px
+    color var(--grey-900)
+    text-align right
+    transition background-color .3s
+// 搜索高亮
+.per-drop-tree-highlight
+  color var(--blue-500)

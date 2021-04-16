@@ -1,0 +1,290 @@
+.p-table-layout
+  position relative
+  min-width 500px
+  width 100%
+  font-size 0
+.p-table-layout-loading
+  position absolute
+  left 0
+  top 0
+  z-index 15
+  display flex
+  align-items center
+  justify-content center
+  background-color var(--theme)-transparency
+  width 100%
+  height 100%
+  svg
+    width 36px
+    height @width
+    font-size 0
+
+.p-table-top-handle
+  position absolute
+  left 0
+  top -60px
+  z-index 11
+  width 100%
+  .p-table-top-select
+    display flex
+    align-items center
+    justify-content space-between
+    padding-left 24px
+    padding-right 16px
+    background-color var(--blue-100)
+    border 1px solid var(--blue-300)
+    border-radius 4px
+    box-shadow var(--box-shadow-max-bottom)
+    width 100%
+    height 48px
+  .p-table-top-select-pos
+    position absolute
+    left 0
+    top -12px
+  .p-table-top-select-left
+    display inline-flex
+    align-items center
+  .p-table-top-select-text
+    margin-right 20px
+    display inline-block
+    vertical-align middle
+    span
+      font-size 14px
+    .p-table-top-select-text-normal
+      color var(--grey-600)
+    .p-table-top-select-text-num
+      padding-left 8px
+      padding-right 8px
+      color var(--grey-900)
+      transition color .3s
+      &:hover
+        color var(--blue-500)
+  .p-table-top-select-right
+    line-height 28px
+    color var(--grey-600)
+    font-size 14px
+    cursor pointer
+    &:active
+      color var(--grey-700)
+
+.p-table-layout-wrapper
+  width 100%
+  overflow hidden
+.p-table-layout-border
+  border 1px solid var(--grey-200)
+.p-table-layout-header
+  position relative
+  background-color var(--grey-50)
+  width 100%
+  overflow hidden
+.p-table-layout-header-no-data
+  z-index 1
+  overflow visible
+.p-table-layout-header-has-bar
+  &::after
+    content ''
+    position absolute
+    right 0
+    bottom 0
+    background-color var(--grey-200)
+    width 17px
+    height 1px
+  .p-table-layout-header-content
+    overflow-y scroll
+.p-table-layout-header-normal
+  height 40px
+.p-table-layout-header-normal-border
+  height 41px
+.p-table-layout-header-dimension
+  height 60px
+.p-table-layout-header-dimension-border
+  height 61px
+.p-table-layout-header-content
+  position relative
+  min-width 500px
+  width 100%
+  overflow-x auto
+  overflow-y hidden
+.p-table-layout-header-content-events
+  pointer-events none
+.p-table-layout-header-fixed
+  position absolute
+  top 0
+  z-index 10
+.p-table-layout-header-fixed-normal
+  height 40px
+.p-table-layout-header-fixed-dimension
+  height 60px
+.p-table-layout-header-fixed-left
+  left 0
+  box-shadow var(--box-shadow-right)
+.p-table-layout-header-fixed-right
+  right 0
+  box-shadow var(--box-shadow-left)
+  &::after
+    position absolute
+    top 0
+    display inline-block
+    background-color var(--grey-50)
+    height 100%
+    content ''
+.p-table-layout-header-fixed-right-6
+  right 6px
+  &::after
+    right -6px
+    width 6px
+.p-table-layout-header-fixed-right-17
+  right 17px
+  &::after
+    right -17px
+    width 17px
+
+.p-table-layout-header-fixed-right-padding
+  .p-table-header
+    .p-table-header-content
+      .p-table-header-th
+        &:last-child
+          padding-right 48px
+
+.p-table-layout-header-setting
+  position absolute
+  right 0
+  top 0
+  z-index 11
+  background-color var(--grey-50)
+  border-left 1px solid var(--grey-200)
+  width 48px
+  text-align center
+  cursor pointer
+  svg
+    vertical-align middle
+    width 16px
+    height @width
+    font-size 0
+    path
+      transition fill .3s
+  &:hover
+    path
+      fill var(--blue-500)
+  .p-table-header-setting-svg
+    display inline-block
+    vertical-align middle
+    width 20px
+    height 20px
+    line-height @height
+    text-align center
+  .p-header-setting-status
+    position absolute
+    left 0
+    top 0
+    opacity 0
+    width 100%
+    height 100%
+.p-table-layout-header-setting-normal
+  height 40px
+  line-height @height
+.p-table-layout-header-setting-dimension
+  height 60px
+  line-height @height
+.p-table-layout-setting-shadow
+  box-shadow var(--box-shadow-left)
+
+.p-table-layout-content
+  width 100%
+  overflow hidden
+.p-table-layout-main
+  position relative
+  min-width 500px
+  width 100%
+  overflow auto
+
+.p-table-layout-main-fixed
+  position absolute
+  top 0
+  z-index 10
+  background-color var(--theme)
+.p-table-layout-main-fixed-left
+  left 0
+  box-shadow var(--box-shadow-right)
+.p-table-layout-main-fixed-right
+  right 0
+  box-shadow var(--box-shadow-left)
+.p-table-layout-main-wrap
+  width 100%
+  overflow-y auto
+  overflow-x hidden
+.p-table-no-data
+  padding-top 24px
+  padding-bottom @padding-top
+  width 100%
+  text-align center
+  > img
+    width 120px
+    height @width
+  .p-table-no-data-text
+    color var(--grey-600)
+    font-size 14px
+
+.p-table-cell-handle
+  display flex
+  align-items center
+  height 100%
+  overflow hidden
+.p-table-cell-handle-item
+  height 20px
+  line-height @height
+  font-size 0
+  > span
+    line-height 20px
+    overflow hidden
+    font-size 14px
+    transition color .3s
+  + .p-table-cell-handle-item
+    position relative
+    padding-left 24px
+    &:before
+      position absolute
+      top 2px
+      left 12px
+      content ''
+      background-color var(--grey-400)
+      width 1px
+      height 16px
+  .p-table-handle-text
+    color var(--blue-500)
+    cursor pointer
+    &:active
+      color var(--blue-600)
+  .p-table-handle-text-disabled
+    color var(--grey-400)
+    cursor not-allowed
+.p-table-more-point
+  width 40px
+  height 20px
+  svg
+    font-size 0
+    width 16px
+    height @width
+    vertical-align middle
+    path
+      transition fill .3s
+  .p-table-more-point-box
+    display inline-block
+    vertical-align middle
+    width 16px
+    height 20px
+    line-height @height
+    font-size 0
+  .p-table-more-point-normal
+    cursor pointer
+    &:hover
+      path
+        fill var(--blue-500)
+  .p-table-more-point-active
+    cursor pointer
+    path
+      fill var(--blue-500)
+  .p-table-more-point-disabled
+    cursor not-allowed
+    path
+      fill var(--grey-400)

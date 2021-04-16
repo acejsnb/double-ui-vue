@@ -1,0 +1,30 @@
+/*CSS动画*/
+@keyframes selectDownUpExtend
+  from
+    transform translate3d(0, -8px, 0)
+    opacity 0
+    pointer-events none
+  to
+    transform translate3d(0, 0, 0)
+    opacity 1
+    pointer-events auto
+
+.selectDownUpExtend-enter-active
+  animation selectDownUpExtend .3s
+.selectDownUpExtend-leave-active
+  animation selectDownUpExtend .3s reverse
+
+@keyframes selectDownUpExtendTop
+  from
+    transform translate3d(0, 8px, 0)
+    opacity 0
+    pointer-events none
+  to
+    transform translate3d(0, 0, 0)
+    opacity 1
+    pointer-events auto
+
+.selectDownUpExtendTop-enter-active
+  animation selectDownUpExtendTop .3s
+.selectDownUpExtendTop-leave-active
+  animation selectDownUpExtendTop .3s reverse

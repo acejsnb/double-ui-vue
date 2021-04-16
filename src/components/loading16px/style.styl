@@ -1,0 +1,18 @@
+.p-loading16px
+  display inline-block
+  width 100%
+  height 100%
+  line-height 100%
+  text-align center
+  .p-loading16px-line
+    width @width
+    height @width
+    min-width 12px
+    min-height 12px
+    animation loading16px .5s linear infinite
+
+@keyframes loading16px
+  0%
+    transform rotate(0)
+  100%
+    transform rotate(360deg)

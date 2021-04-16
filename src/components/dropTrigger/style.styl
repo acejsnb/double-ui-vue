@@ -1,0 +1,203 @@
+.p-drop-trigger
+  position relative
+  display inline-flex
+  justify-content space-between
+  align-items flex-start
+  border 1px solid var(--grey-400)
+  border-radius 4px
+  width 120px
+  font-size 0
+  transition border-color .3s
+.p-drop-trigger-active
+  cursor pointer
+  &:hover
+    border-color var(--blue-500)
+  &:active
+    border-color var(--blue-600)
+.p-drop-trigger-disabled
+  background-color var(--grey-200)
+  cursor not-allowed
+  .p-drop-trigger-caption
+    color var(--grey-400)
+  .p-drop-trigger-icon
+    svg
+      path
+        fill var(--grey-400)
+  .p-drop-trigger-label
+    cursor not-allowed
+    .p-drop-trigger-selected
+      .p-drop-trigger-selected-m
+        color var(--grey-400)
+      .p-drop-trigger-selected-m-c
+        color var(--grey-400)
+.p-drop-trigger-normal
+  height 32px
+.p-drop-trigger-tag
+  min-height 32px
+  max-height 84px
+//overflow hidden
+
+.p-drop-trigger-text-overflow
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+.p-drop-trigger-main
+  padding-left 8px
+  width calc(100% - 30px)
+.p-drop-trigger-main-normal
+  height 30px
+.p-drop-trigger-caption
+  display inline-block
+  max-width 98px
+  height 30px
+  line-height @height
+  color var(--grey-600)
+  font-size 14px
+.p-drop-trigger-label
+  position relative
+  display inline-block
+  width 100%
+  height 30px
+  overflow hidden
+  cursor pointer
+.p-drop-trigger-label-pl
+  padding-left 8px
+.p-drop-trigger-placeholder
+  display block
+  width 100%
+  height 30px
+  line-height @height
+  font-size 14px
+  color var(--grey-400)
+.p-drop-trigger-selected
+  display block
+  width 100%
+  height 30px
+  line-height @height
+.p-drop-trigger-selected-m
+  display block
+  width 100%
+  height 100%
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+  font-size 14px
+  color var(--grey-900)
+  transition color .3s
+.p-drop-trigger-selected-s
+  font-size 14px
+.p-drop-trigger-selected-m-c
+  padding-left 4px
+  padding-right 4px
+  color var(--blue-500)
+  font-size 14px
+.p-drop-trigger-selected-focus
+  .p-drop-trigger-selected-m
+    color var(--grey-400)
+  .p-drop-trigger-selected-m-c
+    color var(--grey-400)
+  .p-drop-trigger-selected-s
+    color var(--grey-400)
+.p-drop-trigger-input
+  position absolute
+  left 0
+  top 0
+  outline none
+  background none
+  border 0
+  width 100%
+  height 30px
+  font-size 14px
+  color var(--grey-900)
+.p-drop-trigger-input-readonly
+  cursor pointer
+.p-drop-trigger-main-tag
+  display inline-flex
+  min-height 30px
+.p-drop-trigger-main-tag-box
+  min-height 28px
+  max-height 82px
+  overflow-x hidden
+  overflow-y auto
+.p-drop-trigger-tag-list
+  display inline-flex
+  align-items flex-start
+  flex-wrap wrap
+  padding-top 4px
+  width 100%
+  min-height 28px
+.p-drop-trigger-tag-list-item
+  display inline-flex
+  align-items center
+  margin-right 4px
+  margin-bottom 4px
+  padding-left 4px
+  background-color var(--grey-200)
+  height 22px
+  line-height @height
+  .p-drop-trigger-tag-list-text
+    font-size 14px
+    color var(--grey-900)
+    cursor text
+  .p-drop-trigger-tag-list-svg
+    width 22px
+    height @width
+    text-align center
+    svg
+      vertical-align middle
+      width 10px
+      height @width
+      font-size 0
+      path
+        transition fill .3s
+  .p-drop-trigger-tag-list-svg-normal
+    &:hover
+      path
+        fill var(--blue-500)
+  .p-drop-trigger-tag-list-svg-disabled
+    cursor not-allowed
+
+.p-drop-trigger-icon
+  width 30px
+  height @width
+.p-drop-trigger-icon-clear
+  &:hover
+    .p-drop-trigger-tgl
+      display none
+    .p-drop-trigger-del
+      display block
+.p-drop-trigger-svg
+  display block
+  padding-top 7px
+  width 100%
+  height 100%
+  text-align center
+  transition transform .3s
+  svg
+    vertical-align middle
+    width 16px
+    height @width
+    font-size 0
+    path
+      transition fill .3s
+.p-drop-trigger-del
+  display none
+  svg
+    &:hover
+      path
+        fill var(--blue-500)
+.p-drop-trigger-tgl
+  display block
+.p-drop-trigger-tgl-open
+  transform rotate(180deg)
+
+.p-trigger-error
+  border-color var(--red-500)
+.p-trigger-error-text
+  position absolute
+  left 0
+  top 36px
+  line-height 14px
+  font-size 14px
+  color var(--red-500)

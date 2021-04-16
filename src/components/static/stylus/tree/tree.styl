@@ -1,0 +1,68 @@
+.p-tree
+    width 100%
+    overflow-x hidden
+    font-size 0
+.p-tree-node
+    width 100%
+.p-tree-node-content
+    position relative
+    padding-left 12px
+    width 100%
+    cursor pointer
+    transition background-color .3s
+    overflow hidden
+    &:hover
+        background-color  var(--hover-color-grey)
+.p-tree-node-content-checked
+    background-color var(--blue-100)
+    .p-tree-node-name
+        color var(--blue-500)
+.p-tree-svg
+    display inline-block
+    vertical-align middle
+    width 24px
+    height 16px
+    line-height @width
+    .p-tree-icon-svg
+        width 16px
+        height 16px
+        vertical-align text-bottom
+        transform rotate(90deg)
+        transition transform 0.3s
+    .p-tree-icon-rotate
+        transform rotate(180deg)
+.p-tree-node-check
+    display inline-block
+    vertical-align middle
+    width calc(100% - 24px)
+    .p-tree-node-checkbox
+        display inline-block
+        vertical-align middle
+        width 20px
+.p-tree-node-title
+    position relative
+    display inline-block
+    vertical-align middle
+    user-select none
+    .p-tree-node-name
+        width 100%
+        height 38px
+        line-height @height
+        font-size 14px
+        color var(--grey-900)
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+.p-tree-node-title-single
+    width 100%
+.p-tree-node-title-multiple
+    width calc(100% - 20px)
+.p-tree-node-content-disabled
+    .p-tree-node-name
+        color var(--grey-400)
+        cursor not-allowed
+.p-tree-node-content-0
+    .p-tree-node-name
+        color var(--grey-900)
+.p-tree-child
+    width 100%
