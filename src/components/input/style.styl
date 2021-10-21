@@ -1,0 +1,30 @@
+.d-input-inline
+  position relative
+  display inline-block
+  width 100%
+  font-size 0
+.d-input
+  padding-left 8px
+  border 1px solid var(--grey-400)
+  border-radius 4px
+  width 100%
+  height 32px
+  outline none
+  font-size 14px
+  color var(--grey-900)
+  transition border-color .12s
+  &:hover,
+  &:active,
+  &:focus
+    border-color var(--blue-500)
+  &::placeholder
+    color var(--grey-400)
+
+.d-input-err
+  position absolute
+  left 0
+  top 36px
+  line-height 18px
+  font-style normal
+  font-size 12px
+  color var(--red-500)

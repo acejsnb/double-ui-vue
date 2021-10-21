@@ -1,27 +1,17 @@
-@import "../static/stylus/animate/slideRightLeft.styl"
+@import "../../assets/animate/slideRightLeft.styl"
 
 .p-drawer-box
   position fixed
   right 0
   top 0
-  z-index 3000
+  z-index 300
   display block
   //min-width 304px
   //max-width 680px
-  width 100%
+  //width 100%
   height 100%
   transition right .3s
-.p-drawer-shadow
-  position absolute
-  top 0
-  right 0
-  z-index 2999
-  width 100%
-  height 100%
-  opacity 0
-//background-color rosybrown
-.p-drawer-shadow-event
-  pointer-events none
+
 .p-drawer
   outline none
   position absolute
@@ -33,7 +23,7 @@
   max-width 680px
   height 100%
   font-size 0
-  z-index 3000
+  z-index 300
 .p-drawer-title
   display flex
   justify-content space-between

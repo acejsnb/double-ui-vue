@@ -11,17 +11,17 @@ const app = new Koa();
 app.use(serve(join(__dirname, 'production')));
 
 // 响应
-app.use(async ctx => {
-    // ctx.body = 'Hello Koa';
-    await ctx.render('./index.html');
+app.use(async (ctx) => {
+	// ctx.body = 'Hello Koa';
+	await ctx.render('./index.html');
 });
 
 const port = 3550; // 端口号
 app.listen(port, (err) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    open(`http://localhost:${port}`);
-    console.log(`Listening at http://localhost:${port}\n`);
+	if (err) {
+		console.log(err);
+		return;
+	}
+	open(`http://localhost:${port}`);
+	console.log(`Listening at http://localhost:${port}\n`);
 });
