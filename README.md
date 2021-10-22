@@ -17,45 +17,19 @@
 
 -   `npm install -S double-ui-vue`
 
-## 全局引入
-
-```
-    import DoubleUi from 'double-ui-vue';
-    import 'double-ui-vue/dist/index.css'；
-
-    Vue.use(DoubleUi);
-```
-
--   安装依赖包 `npm i -D babel-plugin-component`
--   在 .babelrc 中的 plugins 里添加
-
-```json
-[
-	"component",
-	{
-		"libraryName": "double-ui-vue",
-		"camel2Dash": false,
-		"libDir": "dist",
-		"style": false
-	}
-]
-```
-
 ## 按需引入
 
 -   引入组件 `import { Button } from 'double-ui-vue'`
--   安装依赖包 `npm i -D babel-plugin-component`
+-   安装依赖包 `npm i -D babel-plugin-import`
 -   在 .babelrc 中的 plugins 里添加
 
 ```json
 [
-	"component",
-	{
-		"libraryName": "double-ui-vue",
-		"camel2Dash": false,
-		"libDir": "dist",
-		"styleLibrary": { "name": "theme", "base": true }
-	}
+  "import",
+  {
+    "libraryName": "double-ui-vue",
+    "style": (name) => `${name}/style.css`
+}
 ]
 ```
 
@@ -63,6 +37,5 @@
 
 -   npm run dev `启动开发预览`
 -   npm run prod `打包成静态`
--   npm run components `打包所有组件`
 -   npm run single `打包单个组件`
 -   npm run vite `开发预览`

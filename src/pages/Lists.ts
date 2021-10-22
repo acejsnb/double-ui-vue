@@ -62,6 +62,11 @@ const components = [
 		url: 'dropdownview'
 	},
 	{
+		title: 'Form',
+		more: '表单',
+		url: 'formview'
+	},
+	{
 		title: 'DropTrigger',
 		more: '触发器使用方式',
 		url: 'droptriggerview'

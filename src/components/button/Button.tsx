@@ -38,16 +38,16 @@ const Button = defineComponent({
                 <button
                     type={htmlType}
                     class={[
-                        'm-button',
-                        `m-button-${type}`,
-                        `m-button-${size}`,
-                        `m-button-${disabled ? 'disabled' : 'normal'}`
+                        'd-button',
+                        `d-button-${type}`,
+                        `d-button-${size}`,
+                        `d-button-${disabled ? 'disabled' : 'normal'}`
                     ]}
                     style={{ width: `${width}px` }}
                     onClick={clickHandle}
                 >
-                    <section class="m-button-content">
-                        <span class="m-button-text">{slots.default && slots.default()}</span>
+                    <section class="d-button-content">
+                        <span class="d-button-text">{slots.default && slots.default()}</span>
                     </section>
                 </button>
             );

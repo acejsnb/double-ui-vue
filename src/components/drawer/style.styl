@@ -1,6 +1,6 @@
 @import "../../assets/animate/slideRightLeft.styl"
 
-.p-drawer-box
+.d-drawer-box
   position fixed
   right 0
   top 0
@@ -12,7 +12,7 @@
   height 100%
   transition right .3s
 
-.p-drawer
+.d-drawer
   outline none
   position absolute
   right 0
@@ -24,7 +24,7 @@
   height 100%
   font-size 0
   z-index 300
-.p-drawer-title
+.d-drawer-title
   display flex
   justify-content space-between
   align-items center
@@ -34,10 +34,10 @@
   border-bottom 1px solid var(--grey-300)
   width 100%
   height 56px
-  .p-drawer-title-content
+  .d-drawer-title-content
     width calc(100% - 16px)
     font-size 0
-  .p-drawer-title-icon
+  .d-drawer-title-icon
     svg
       width 16px
       height @width
@@ -46,14 +46,14 @@
         path
           fill var(--blue-500)
           transition fill .3s
-.p-drawer-content
+.d-drawer-content
   width 100%
   min-width 304px
   max-width 680px
   height calc(100% - 56px)
   overflow-x hidden
   overflow-y auto
-  .p-drawer-content-loading
+  .d-drawer-content-loading
     padding 16px
     width 100%
     text-align center
@@ -64,18 +64,18 @@
       vertical-align middle
       color var(--grey-600)
       font-size 14px
-.p-drawer-content-bottom
+.d-drawer-content-bottom
   height calc(100% - 132px)
-.p-drawer-handle
+.d-drawer-handle
   padding 24px 32px 20px
   background-color var(--theme)
   width 100%
-.p-drawer-handle-bottom
+.d-drawer-handle-bottom
   position absolute
   right 0
   bottom 0
   box-shadow var(--box-shadow-top)
-.p-drawer-loading
+.d-drawer-loading
   position absolute
   left 0
   top 0
@@ -83,9 +83,9 @@
   width 100%
   height 100%
   z-index 11
-  .p-drawer-loading-svg
+  .d-drawer-loading-svg
     margin 50% auto 0
     width 40px
     height @width
-.p-loading16px-drawer
+.d-loading16px-drawer
   color var(--grey-400)

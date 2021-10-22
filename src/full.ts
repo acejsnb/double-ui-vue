@@ -8,6 +8,8 @@ import Button from './components/button/Button';
 import Checkbox from './components/checkbox/Checkbox';
 import Drawer from './components/drawer/Drawer';
 import Dropdown from './components/dropdown/Dropdown';
+import Form from './components/form/Form';
+import Input from './components/input/Input';
 import Message from './components/message';
 import PopoverTip from './components/popoverTip/PopoverTip';
 import Select from './components/select/Select';
@@ -23,6 +25,8 @@ const components: Component = {
 	Checkbox,
 	Drawer,
 	Dropdown,
+	Form,
+	Input,
 	PopoverTip,
 	Select,
 	SelectScreen,

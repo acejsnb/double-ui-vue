@@ -1,4 +1,4 @@
-.m-button
+.d-button
   display inline-block
   vertical-align middle
   padding-left 8px
@@ -9,23 +9,23 @@
   font-size 0
   text-align center
   transition background-color .3s, border .3s
-  + .m-button
+  + .d-button
     margin-left 12px
-  .m-button-content
+  .d-button-content
     width 100%
-.m-button-default
+.d-button-default
   background-color var(--theme)
   border-color var(--grey-400)
   color var(--grey-900)
   &:hover
     border-color var(--blue-500)
-    .m-button-text
+    .d-button-text
       color var(--blue-500)
   &:active
     border-color var(--blue-600)
-    .m-button-text
+    .d-button-text
       color var(--blue-600)
-.m-button-blue
+.d-button-blue
   background-color var(--blue-500)
   border-color var(--blue-500)
   color var(--white)
@@ -35,51 +35,51 @@
   &:active
     background-color var(--blue-600)
     border-color var(--blue-600)
-.m-button-word
+.d-button-word
   background none
   border-color transparent
   color var(--grey-900)
-  .m-button-text
+  .d-button-text
     font-weight 500
   &:hover
-    .m-button-text
+    .d-button-text
       color var(--blue-500)
   &:active
-    .m-button-text
+    .d-button-text
       color var(--blue-600)
 
-.m-button-large
+.d-button-large
   max-width 128px
   min-width 80px
   height 40px
-  .m-button-content
+  .d-button-content
     height 38px
     line-height @height
-.m-button-medium
+.d-button-medium
   max-width 116px
   min-width 80px
   height 32px
-  .m-button-content
+  .d-button-content
     height 30px
     line-height @height
-.m-button-small
+.d-button-small
   max-width 108px
   min-width 60px
   height 28px
-  .m-button-content
+  .d-button-content
     height 26px
     line-height @height
 
-.m-button-normal
+.d-button-normal
   cursor pointer
-.m-button.m-button-disabled
+.d-button.d-button-disabled
   cursor not-allowed
-  .m-button-text
+  .d-button-text
     color var(--grey-400)
-.m-button-disabled:not([type='word'])
+.d-button-disabled:not([type='word'])
   background-color var(--grey-200)
   border-color var(--grey-200)
 
-.m-button-text
+.d-button-text
   font-size 14px
   transition color .3s

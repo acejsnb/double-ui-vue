@@ -1,4 +1,4 @@
-.p-checkbox
+.d-checkbox
   display inline-flex
   align-items center
   min-width 16px
@@ -6,9 +6,9 @@
   vertical-align middle
   cursor pointer
   z-index 1
-  & + .p-checkbox
+  & + .d-checkbox
     margin-left 8px
-  .p-checkbox-box
+  .d-checkbox-box
     position relative
     vertical-align middle
     border-width 1px
@@ -28,12 +28,12 @@
       z-index 1
       content ''
       pointer-events none
-  .p-checkbox-uncheck
+  .d-checkbox-uncheck
     background-color var(--theme)
     border-color var(--grey-400)
     &:hover
       border-color var(--blue-500)
-  .p-checkbox-checked
+  .d-checkbox-checked
     background-color var(--blue-500)
     border-color var(--blue-500)
     &::after
@@ -44,7 +44,7 @@
       width 4px
       height 8px
       transform rotate(45deg) scale(1)
-  .p-checkbox-notNull
+  .d-checkbox-notNull
     background-color var(--blue-500)
     border-color var(--blue-500)
     &::after
@@ -54,7 +54,7 @@
       width 8px
       height 2px
       transform scale(1)
-  .p-checkbox-text
+  .d-checkbox-text
     padding-left 8px
     width calc(100% - 16px)
     color var(--grey-900)
@@ -63,15 +63,15 @@
     text-overflow ellipsis
     white-space nowrap
     user-select none
-.p-checkbox-disabled
+.d-checkbox-disabled
   cursor not-allowed
   > i
     pointer-events none
-  .p-checkbox-uncheck
+  .d-checkbox-uncheck
     background-color var(--grey-300)
-  .p-checkbox-checked
+  .d-checkbox-checked
     background-color var(--grey-400)
     border-color var(--grey-400)
-  .p-checkbox-notNull
+  .d-checkbox-notNull
     background-color var(--grey-400)
     border-color var(--grey-400)

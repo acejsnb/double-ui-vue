@@ -1,5 +1,5 @@
 import './style.styl';
-import { defineComponent, ref, watch } from 'vue';
+import { Ref, defineComponent, ref, watch, inject, computed } from 'vue';
 
 const Input = defineComponent({
     name: 'Input',
@@ -27,6 +27,13 @@ const Input = defineComponent({
     },
     emits: ['update:value', 'change'],
     setup(props, { emit }) {
+        // 表单item的name
+        const name = inject<string>('name');
+        // 表单传过来的错误信息
+        const formErrText = inject<Ref<string>>('formErrText');
+        // 定义错误信息，其中表单的错误信息权重更高
+        const errText = computed(() => formErrText.value || props.errText);
+        // v-model绑定值
         const inputValue = ref(props.value);
         watch(() => props.value, (n, o) => {
             if (n === o) return;
@@ -34,6 +41,7 @@ const Input = defineComponent({
         });
         watch(() => inputValue.value, (n, o) => {
             if (n === o) return;
+            if (formErrText?.value) formErrText.value = '';
             emit('update:value', n);
         });
 
@@ -44,14 +52,15 @@ const Input = defineComponent({
 
         return () => (
             <span class="d-input-inline">
-                <input class="d-input"
+                <input class={['d-input', errText.value && 'd-input-err']}
+                    name={name}
                     type={props.type}
                     placeholder={props.placeholder}
                     maxlength={props.maxlength}
                     v-model={inputValue.value}
                     onChange={change}
                 />
-                {props.errText && <i class="d-input-err">{props.errText}</i>}
+                {errText.value && <i class="d-input-err-text">{errText.value}</i>}
             </span>
         );
     }

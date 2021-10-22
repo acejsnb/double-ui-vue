@@ -8,3 +8,4 @@ get_ip.js
 get_time.js
 config
 lib
+lib/index.js

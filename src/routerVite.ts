@@ -7,6 +7,7 @@ import ButtonView from './views/example/ButtonView';
 import CheckboxView from './views/example/CheckboxView';
 import DrawerView from './views/example/DrawerView';
 import DropdownView from './views/example/DropdownView';
+import FormView from './views/example/FormView';
 import DropTriggerView from './views/example/DropTriggerView';
 import MessageView from './views/example/MessageView';
 import PopoverTipView from './views/example/PopoverTipView';
@@ -56,6 +57,14 @@ const routesJsx: Array<RouteRecordRaw> = [
 		component: DropdownView,
 		meta: {
 			title: 'Dropdown'
+		}
+	},
+	{
+		path: '/formview',
+		name: 'FormView',
+		component: FormView,
+		meta: {
+			title: 'Form'
 		}
 	},
 	{

@@ -1,4 +1,5 @@
 .DS_Store
+.idea
 node_modules/
 /lib/
 /dist/
@@ -14,6 +15,7 @@ expressServer.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
 
 # Editor directories and files
 .idea

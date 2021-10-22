@@ -1,19 +1,19 @@
-.p-sidebar-custom
+.d-sidebar-custom
   position relative
   display flex
   width 100%
   height 100%
   font-size 0
   overflow hidden
-.p-sidebar-custom-col-resize
+.d-sidebar-custom-col-resize
   cursor col-resize
   > div
     pointer-events none
     user-select none
-  .p-sidebar-left
+  .d-sidebar-left
     pointer-events none
-.p-sidebar-custom-normal
-  .p-sidebar-custom-btn
+.d-sidebar-custom-normal
+  .d-sidebar-custom-btn
     border-radius 12px
     width 24px
     height @width
@@ -22,8 +22,8 @@
     svg
       width 12px
       height 12px
-.p-sidebar-custom-large
-  .p-sidebar-custom-btn
+.d-sidebar-custom-large
+  .d-sidebar-custom-btn
     border-radius 14px
     width 28px
     height @width
@@ -32,7 +32,7 @@
     svg
       width 16px
       height @width
-.p-sidebar-custom-line
+.d-sidebar-custom-line
   position absolute
   left 222px
   top 0
@@ -41,13 +41,13 @@
   width 2px
   height 100%
   pointer-events none
-.p-sidebar-custom-bar
+.d-sidebar-custom-bar
   position absolute
   top 0
   z-index 11
   width 3px
   height 100%
-.p-sidebar-custom-bar-change-size
+.d-sidebar-custom-bar-change-size
   cursor col-resize
   &:hover
     &::before
@@ -60,7 +60,7 @@
       background-color var(--blue-500)
       width 2px
       height 100%
-.p-sidebar-custom-btn
+.d-sidebar-custom-btn
   position absolute
   top 16px
   z-index 12
@@ -87,14 +87,14 @@
     transition transform .3s
     path
       transition fill.3s
-.p-sidebar-custom-btn-normal
+.d-sidebar-custom-btn-normal
   svg
     margin-left -2px
-.p-sidebar-custom-btn-rotate
+.d-sidebar-custom-btn-rotate
   svg
     margin-right -2px
     transform rotate(180deg)
-.p-sidebar-left
+.d-sidebar-left
   position relative
   z-index 10
   background-color var(--grey-50)
@@ -103,7 +103,7 @@
   height 100%
   overflow auto
   //transition width .3s
-.p-sidebar-right
+.d-sidebar-right
   width calc(100% - 224px)
   height 100%
   overflow auto

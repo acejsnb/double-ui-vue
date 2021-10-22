@@ -1,6 +1,6 @@
 @import "../../assets/animate/fadeDownUpUi.styl"
 
-.p-message-box
+.d-message-box
   position absolute
   top 36px
   left 0
@@ -13,7 +13,7 @@
   z-index 800
   pointer-events none
 
-.p-message
+.d-message
   display flex
   justify-content space-around
   align-items flex-start
@@ -23,14 +23,14 @@
   min-width 240px
   max-width 600px
   min-height 40px
-  .p-message-hint
+  .d-message-hint
     line-height 24px
     font-size 0
     svg
       vertical-align middle
       width 16px
       height 16px
-  .p-message-text
+  .d-message-text
     padding-left 8px
     padding-right 8px
     width 100%
@@ -39,7 +39,7 @@
     color var(--white)
     word-wrap break-word
     line-height 24px
-  .p-message-close
+  .d-message-close
     height 24px
     line-height @height
     pointer-events auto
@@ -52,11 +52,11 @@
       cursor pointer
       &:hover
         opacity 1
-.p-message-info
+.d-message-info
   background-color var(--blue-500)
-.p-message-success
+.d-message-success
   background-color var(--turquoise-500)
-.p-message-warning
+.d-message-warning
   background-color var(--orange-400)
-.p-message-error
+.d-message-error
   background-color var(--red-400)

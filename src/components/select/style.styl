@@ -1,12 +1,12 @@
 
 @import "../../assets/animate/selectDownUpExtend.styl"
 
-.m-select
+.d-select
   display inline-block
   vertical-align middle
   font-size 0
 
-.m-drop-box
+.d-drop-box
   position absolute
   z-index 700
   display inline-block
@@ -16,23 +16,23 @@
   width 180px
   overflow hidden
   font-size 0
-.m-drop-box-shadow-top
+.d-drop-box-shadow-top
   box-shadow var(--box-shadow-top)
-.m-drop-box-shadow-bottom
+.d-drop-box-shadow-bottom
   box-shadow var(--box-shadow-bottom)
-.m-drop-box-content
+.d-drop-box-content
   padding-top 8px
   padding-bottom @padding-top
   width 100%
   overflow-x hidden
   overflow-y auto
-.m-drop-box-content-normal
+.d-drop-box-content-normal
   //max-height 208px
   max-height 200px
-.m-drop-box-content-max
+.d-drop-box-content-max
   //max-height 322px
   max-height 320px
-.m-drop-option
+.d-drop-option
   padding-left 12px
   padding-right 8px
   width 100%
@@ -40,22 +40,22 @@
   line-height @height
   cursor pointer
   transition background-color .3s
-.m-drop-option-normal
+.d-drop-option-normal
   &:hover
     background-color var(--grey-100)
-.m-drop-option-selected
+.d-drop-option-selected
   background-color var(--blue-100)
   &:hover
     background-color var(--blue-100)
-  .m-drop-option-text
+  .d-drop-option-text
     color var(--blue-500)
-.m-drop-option-disabled
+.d-drop-option-disabled
   background-color transparent
   cursor not-allowed
   user-select none
-  .m-drop-option-text
+  .d-drop-option-text
     color var(--grey-400)
-.m-drop-option-text
+.d-drop-option-text
   width 100%
   height 100%
   font-size 14px
@@ -63,36 +63,36 @@
   overflow hidden
   white-space nowrap
   text-overflow ellipsis
-.m-drop-option-text-highlight
+.d-drop-option-text-highlight
   color var(--blue-500)
-.m-drop-option-none
+.d-drop-option-none
   padding 8px 12px
   font-size 14px
   color var(--grey-400)
 
-.m-drop-handle
+.d-drop-handle
   padding-top 12px
   padding-bottom 12px
   width 100%
   text-align right
-.m-drop-handle-shadow
+.d-drop-handle-shadow
   box-shadow var(--box-shadow-top)
-.m-drop-btn
+.d-drop-btn
   margin-right 12px
   line-height 22px
   font-size 14px
   transition color .3s
   user-select none
-.m-drop-btn-cancel
+.d-drop-btn-cancel
   color var(--grey-900)
   cursor pointer
-.m-drop-btn-confirm
+.d-drop-btn-confirm
   color var(--blue-500)
   cursor pointer
   &:hover
     color var(--blue-400)
   &:active
     color var(--blue-600)
-.m-drop-btn-disabled
+.d-drop-btn-disabled
   color var(--grey-400)
   cursor not-allowed

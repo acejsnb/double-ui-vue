@@ -4,10 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 文本分离
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
 const { VueLoaderPlugin } = require('vue-loader'); // vue加载器
-
 const { name, version, author, license } = require('../package.json');
 
-const { NODE_ENV } = process.env;
+const { WEBPACK_SERVE } = process.env;
 
 // 获取时间
 const TimeFn = require('../get_time');
@@ -22,43 +21,20 @@ ${TimeFn()}`;
  * @type {boolean}
  * isProd为true表示生产
  */
-const isProd = NODE_ENV === 'production';
+const isProd = !WEBPACK_SERVE;
 
 /**
  *  css和stylus开发、生产依赖
  *  生产分离css
- */
-const cssConfig = [
+ */const cssConfig = (step = 1) => [
 	isProd ? MiniCssExtractPlugin.loader : 'style-loader',
 	{
 		loader: 'css-loader',
 		options: {
-			importLoaders: 1,
-			sourceMap: !isProd
+			importLoaders: step,
 		}
 	},
-	{
-		loader: 'postcss-loader',
-		options: {
-			sourceMap: !isProd
-		}
-	}
-];
-const stylusConfig = [
-	isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-	{
-		loader: 'css-loader',
-		options: {
-			importLoaders: 1,
-			sourceMap: !isProd
-		}
-	},
-	{
-		loader: 'stylus-loader',
-		options: {
-			sourceMap: !isProd
-		}
-	}
+	{ loader: 'postcss-loader' }
 ];
 
 const config = {
@@ -66,13 +42,16 @@ const config = {
 		rules: [
 			{
 				test: /\.css$/i,
-				use: cssConfig,
-				exclude: /node_modules/
+				use: cssConfig(1)
 			},
 			{
-				test: /\.styl(us)?$/,
-				use: stylusConfig,
-				include: [resolve(__dirname, '../src')],
+				test: /\.styl$/,
+				use: [
+					...cssConfig(2),
+					{
+						loader: 'stylus-loader',
+					}
+				],
 				exclude: /node_modules/
 			},
 			{
@@ -81,15 +60,23 @@ const config = {
 					{
 						loader: 'vue-loader',
 						options: {
-							loaders: {
-								css: cssConfig,
-								stylus: stylusConfig
-							},
+							plugins: ['@babel/transform-typescript'],
 							preserveWhitespace: false // 不要留空白
 						}
 					}
 				],
-				include: [resolve(__dirname, '../src')]
+				exclude: /node_modules/
+			},
+			{
+				test: /\.js$/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							cacheDirectory: !isProd
+						}
+					}
+				]
 			},
 			{
 				test: /\.tsx?$/,
@@ -104,12 +91,14 @@ const config = {
 						loader: 'ts-loader'
 					}
 				],
-				include: [resolve(__dirname, '../src')],
-				exclude: [resolve(__dirname, '../node_modules')]
+				// exclude: /node_modules/
 			},
 			{
 				test: /\.svg$/,
-				use: ['vue-loader', 'vuecomponent-svg-loader'],
+				use: [
+					'babel-loader',
+					'vuecomponent-svg-loader'
+				],
 				include: [resolve(__dirname, '../src')]
 			},
 			{
