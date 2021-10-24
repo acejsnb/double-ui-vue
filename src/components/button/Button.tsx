@@ -1,4 +1,5 @@
 import './index.styl';
+import Loading16px from '@/components/loading16px/Loading16px';
 
 import { defineComponent, PropType } from 'vue';
 
@@ -24,6 +25,10 @@ const Button = defineComponent({
         htmlType: {
             type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
             default: 'button'
+        },
+        loading: {
+            type: Boolean as PropType<boolean>,
+            default: false
         }
     },
     emits: ['click'],
@@ -33,7 +38,7 @@ const Button = defineComponent({
         };
 
         return () => {
-            const { type, size, disabled, width, htmlType } = props;
+            const { type, size, disabled, width, htmlType, loading } = props;
             return (
                 <button
                     type={htmlType}
@@ -47,6 +52,7 @@ const Button = defineComponent({
                     onClick={clickHandle}
                 >
                     <section class="d-button-content">
+                        {loading && <span class="d-button-loading"><Loading16px/></span>}
                         <span class="d-button-text">{slots.default && slots.default()}</span>
                     </section>
                 </button>
