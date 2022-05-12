@@ -9,10 +9,9 @@ import {
     onMounted,
     onBeforeUnmount
 } from 'vue';
+import { findTarget, textEllipsis } from 'js-func-tools';
 import ClickOutside from '@/utils/ClickOutside';
-import FindTarget from '@/utils/FindTarget';
 import ClearSvg from '@/assets/iconSvg/clear2.svg';
-import TextEllipsis from '@/utils/TextEllipsis';
 
 export interface Item {
 	id: string;
@@ -125,7 +124,7 @@ const DOption = defineComponent({
         });
         const { proxy }: any = getCurrentInstance();
 
-        let timer: NodeJS.Timeout;
+        let timer: number;
 
         watch(
             () => props.parentState.optionStatus,
@@ -184,7 +183,7 @@ const DOption = defineComponent({
         const dropClick = (e: MouseEvent) => {
             const {
                 dataset: { id }
-            } = FindTarget(e.target as HTMLElement, 'SECTION');
+            } = findTarget(e.target as HTMLElement, ['SECTION']);
             const { optionData } = state;
             const { name = '', disabled = false } = optionData.find((d) => d.id === id);
             if (disabled) return;
@@ -240,9 +239,7 @@ const DOption = defineComponent({
                             'd-drop-content',
                             `d-drop-content-${theme}`,
                             arrow &&
-								(position
-								    ? 'd-drop-content-top-arrow'
-								    : 'd-drop-content-bottom-arrow')
+								(position ? 'd-drop-content-top-arrow' : 'd-drop-content-bottom-arrow')
                         ]}
                         style={{
                             minWidth: `${minWidth}px`,
@@ -276,7 +273,7 @@ const DOption = defineComponent({
                             onScroll={scrollTopHandle}
                             onClick={dropClick}
                             onMouseover={(e: MouseEvent) => {
-                                TextEllipsis(e, 'SECTION');
+                                textEllipsis(e, 'SECTION');
                             }}
                         >
                             {optionData.map((item: Item) => (

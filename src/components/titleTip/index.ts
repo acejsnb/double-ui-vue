@@ -18,7 +18,7 @@ let tipTop = 0;
 let tipLeft = 0;
 let dom: HTMLDivElement;
 let toolTipInstance: App<Element>;
-let timer: NodeJS.Timeout = null;
+let timer: number = null;
 
 const Tooltip = (el: HTMLElement, binding: any) => {
     const reg = /<\/?.+?\/?>/g; // 匹配标签元素的正则

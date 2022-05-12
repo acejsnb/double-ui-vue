@@ -1,25 +1,25 @@
-import CalcTargetPosition from '@/utils/CalcTargetPosition';
+import { getPlaceByTrigger } from 'js-func-tools';
 import CreateInstance, { Instance } from '@/utils/CreateInstance';
 import DB from './DropBox';
 
 import { Item } from '../types';
 
 const resetPosition = (instance: Instance) => {
-	const { vm, tag } = instance;
-	const {
-		props: { data = [], width, alignRight = false },
-		el
-	} = vm;
+    const { vm, tag } = instance;
+    const {
+        props: { alignRight = false },
+        el
+    } = vm;
 
-	const hei = data.length * 38 + 16;
-	let height;
-	if (hei < 208) height = hei;
-	else height = 208;
-	const { X, Y, P } = CalcTargetPosition(tag, height, width, alignRight);
-	vm.component.props.position = P;
-	// 设置位置
-	el.style.top = `${Y}px`;
-	el.style.left = `${X}px`;
+    const { left, top, isDown } = getPlaceByTrigger({
+        trigger: tag,
+        dom: el as HTMLElement,
+        isRight: !!alignRight
+    });
+    vm.component.props.position = isDown;
+    // 设置位置
+    el.style.top = `${top}px`;
+    el.style.left = `${left}px`;
 };
 
 export interface Props {
@@ -39,12 +39,12 @@ type TOptions = {
 	props: Props;
 };
 const DropBox = ({ tag, props }: TOptions): Instance =>
-	CreateInstance<Props>({
-		tag,
-		props,
-		component: DB,
-		resetPosition
-	});
+    CreateInstance<Props>({
+        tag,
+        props,
+        component: DB,
+        resetPosition
+    });
 
 export type { Instance };
 export default DropBox;

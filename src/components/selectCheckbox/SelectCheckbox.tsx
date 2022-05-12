@@ -1,9 +1,9 @@
 import './style.styl';
 import { defineComponent, reactive, watch, onMounted, createStaticVNode, PropType } from 'vue';
+import { textEllipsis } from 'js-func-tools';
 
 import GetTextHideWidth from '@/utils/GetTextHideWidth';
 import GetScrollbarWidth from '@/utils/GetScrollbarWidth';
-import TextEllipsis from '@/utils/TextEllipsis';
 import CheckHtml from '@/utils/CheckHtml';
 import Checkbox from '@/components/checkbox/Checkbox';
 
@@ -80,7 +80,7 @@ const SelectCheckbox = defineComponent({
             { deep: true, immediate: true }
         );
 
-        const textEllipsis = (
+        const setHtmlTagTitle = (
             e: MouseEvent,
             { excess, name }: { excess: boolean; name: string }
         ) => {
@@ -89,7 +89,7 @@ const SelectCheckbox = defineComponent({
             if (textIndent) {
                 if (excess) (e.target as HTMLElement).title = name.replace(reg, '');
             } else {
-                TextEllipsis(e);
+                textEllipsis(e);
             }
         };
         // 移除某一个选中的
@@ -148,7 +148,7 @@ const SelectCheckbox = defineComponent({
                                     style={{
                                         textIndent: `${item.excess - (item.excess && scrollBar)}px`
                                     }}
-                                    onMouseenter={(e) => textEllipsis(e, item)}
+                                    onMouseenter={(e) => setHtmlTagTitle(e, item)}
                                 >
                                     {CheckHtml(item.name)
                                         ? createStaticVNode(item.name, 0)

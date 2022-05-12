@@ -5,7 +5,7 @@
 			"@/*": ["src/*"]
 		},
 		"types": ["node", "webpack-env", "vite/client", "jest"],
-		"target": "es6",
+		"target": "ESNext",
 		"module": "ESNext",
 		// "module": "commonjs",
 		"lib": ["DOM", "DOM.Iterable", "ESNext", "scripthost"],
@@ -30,6 +30,7 @@
 		"jsx": "preserve",
 		"removeComments": true
 	},
-	"include": ["src", "src/**/*.ts", "src/**/*.tsx"],
-	"exclude": ["node_modules", "dist"]
+	"include": ["src", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+	"exclude": ["node_modules", "dist"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

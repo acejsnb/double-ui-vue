@@ -1,6 +1,6 @@
 import './style.styl';
 import { defineComponent, getCurrentInstance } from 'vue';
-import TextEllipsis from '@/utils/TextEllipsis';
+import { textEllipsis } from 'js-func-tools';
 
 const Checkbox = defineComponent({
     name: 'Checkbox',
@@ -53,7 +53,7 @@ const Checkbox = defineComponent({
             <div class={['d-checkbox', disabled && 'd-checkbox-disabled']} onClick={handleChange}>
                 <i class={['d-checkbox-box', `d-checkbox-${checked}`]} />
                 {slots.default && (
-                    <span class="d-checkbox-text" onMouseenter={TextEllipsis}>
+                    <span class="d-checkbox-text" onMouseenter={textEllipsis}>
                         {slots.default()}
                     </span>
                 )}

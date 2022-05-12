@@ -8,7 +8,7 @@
 import { RendererNode } from 'vue';
 
 const ClickOutside = (e: MouseEvent, dom: RendererNode, cb: () => void): void => {
-	if (!dom.contains(e.target)) cb();
+    if (!dom.contains(e.target)) cb();
 };
 
 export default ClickOutside;

@@ -52,7 +52,7 @@ const config = {
 		})
 	],
 	cache: true,
-	devtool: 'inline-source-map',
+	devtool: 'eval-source-map',
 	devServer: {
 		static: {
 			directory: join(__dirname, '../development'),
@@ -62,9 +62,10 @@ const config = {
 		port, // 端口号
 		hot: true,
 		client: {
-			overlay: true,
-			progress: true
-		}
+			logging: 'info',
+			overlay: true
+			// progress: true
+		},
 		// historyApiFallback: { // 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 /
 		//     rewrites: [{ from: /./, to: '/' }]
 		// }

@@ -1,5 +1,5 @@
 import { VNode, Ref, h, render, isRef } from 'vue';
-import CalcTargetPosition from '@/utils/CalcTargetPosition';
+import { getPlaceByTrigger } from 'js-func-tools';
 
 import DBX, { Item } from './DropBox';
 
@@ -11,45 +11,19 @@ export interface Instance {
 	remove(): void;
 }
 
-// 获取宽度
-const getWidth = (status: string, data: Item[]) => {
-    const { body } = document;
-    const tag = document.createElement('div');
-    tag.className = 'd-drop-box';
-    tag.style.padding = '0';
-    tag.style.border = '0';
-    tag.style.height = '0';
-    tag.style.zIndex = '-100';
-    let html = '<div class="d-drop-box-list">';
-    data.forEach((d) => {
-        html += `<article class="d-drop-box-item"><section class="d-drop-box-text">${d.name}</section></article>`;
-    });
-    html += '<div>';
-
-    tag.innerHTML = html;
-    body.appendChild(tag);
-    const { width } = tag.getBoundingClientRect();
-    body.removeChild(tag);
-    return status.includes('single') ? width : width + 20;
-};
-
 const resetPosition = (instance: Instance) => {
     const { vm, tag } = instance;
-    const {
-        component: {
-            props: { data, status }
-        },
-        el
-    } = vm;
+    const { el } = vm;
     const tagEle = isRef(tag) ? tag.value : tag;
-    const width = getWidth(status as string, data as Item[]);
-    const height = (status as string).includes('multiple') ? 250 : 208;
-    const { X, Y, P } = CalcTargetPosition(tagEle, height, width);
+    const { left, top, isDown } = getPlaceByTrigger({
+        trigger: tagEle,
+        dom: el as HTMLElement
+    });
     // @ts-ignore
-    vm.type.state.position = P;
+    vm.type.state.position = isDown;
     // 设置位置
-    el.style.top = `${Y}px`;
-    el.style.left = `${X}px`;
+    el.style.top = `${top}px`;
+    el.style.left = `${left}px`;
     instance.setShow(true);
 };
 

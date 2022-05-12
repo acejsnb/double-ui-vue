@@ -9,9 +9,8 @@ import {
     onBeforeUnmount,
     Transition
 } from 'vue';
-
+import { textEllipsis } from 'js-func-tools';
 import ClearSvg from '@/assets/iconSvg/clear2.svg';
-import TextEllipsis from '@/utils/TextEllipsis';
 
 import Checkbox from '../../checkbox/Checkbox';
 
@@ -116,7 +115,7 @@ const DropBox = defineComponent({
             { deep: true, immediate: true }
         );
 
-        let timer: NodeJS.Timeout = null;
+        let timer: number = null;
         watch(
             () => state.searchText,
             (n, o) => {
@@ -288,7 +287,7 @@ const DropBox = defineComponent({
                                         : (
                                             <section
                                                 class="d-drop-box-text"
-                                                onMouseenter={TextEllipsis}
+                                                onMouseenter={textEllipsis}
                                                 onClick={(e) => {
                                                     e.stopPropagation();
                                                     itemClick(item);

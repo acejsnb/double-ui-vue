@@ -23,13 +23,13 @@
 -   安装依赖包 `npm i -D babel-plugin-import`
 -   在 .babelrc 中的 plugins 里添加
 
-```json
+```js
 [
   "import",
   {
     "libraryName": "double-ui-vue",
     "style": (name) => `${name}/style.css`
-}
+  }
 ]
 ```
 

@@ -10,8 +10,8 @@ import {
     Transition,
     createStaticVNode
 } from 'vue';
+import { textEllipsis } from 'js-func-tools';
 import ClickOutside from '@/utils/ClickOutside';
-import TextEllipsis from '@/utils/TextEllipsis';
 import RegHtml from '@/utils/RegTools';
 import SelectCheckbox from '@/components/selectCheckbox/SelectCheckbox';
 import { Item } from '../types';
@@ -233,7 +233,7 @@ const DropBox = defineComponent({
                                                 >
                                                     <section
                                                         class="d-drop-option-text"
-                                                        onMouseenter={TextEllipsis}
+                                                        onMouseenter={textEllipsis}
                                                     >
                                                         {createStaticVNode(d.name, 0)}
                                                     </section>

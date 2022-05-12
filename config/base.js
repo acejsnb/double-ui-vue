@@ -12,7 +12,7 @@ const { WEBPACK_SERVE } = process.env;
 const TimeFn = require('../get_time');
 
 const banner = `@${name} v${version}
-(c) 2019-2021 ${author}
+(c) 2021-2022 ${author}
 Released under the ${license} License.
 ${TimeFn()}`;
 
@@ -26,15 +26,38 @@ const isProd = !WEBPACK_SERVE;
 /**
  *  css和stylus开发、生产依赖
  *  生产分离css
- */const cssConfig = (step = 1) => [
+ */
+const cssConfig = [
 	isProd ? MiniCssExtractPlugin.loader : 'style-loader',
 	{
 		loader: 'css-loader',
 		options: {
-			importLoaders: step,
+			importLoaders: 1,
+			sourceMap: !isProd
 		}
 	},
-	{ loader: 'postcss-loader' }
+	{
+		loader: 'postcss-loader',
+		options: {
+			sourceMap: !isProd
+		}
+	}
+];
+const stylusConfig = [
+	isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+	{
+		loader: 'css-loader',
+		options: {
+			importLoaders: 1,
+			sourceMap: !isProd
+		}
+	},
+	{
+		loader: 'stylus-loader',
+		options: {
+			sourceMap: !isProd
+		}
+	}
 ];
 
 const config = {
@@ -42,16 +65,13 @@ const config = {
 		rules: [
 			{
 				test: /\.css$/i,
-				use: cssConfig(1)
+				use: cssConfig,
+				exclude: /node_modules/
 			},
 			{
-				test: /\.styl$/,
-				use: [
-					...cssConfig(2),
-					{
-						loader: 'stylus-loader',
-					}
-				],
+				test: /\.styl(us)?$/,
+				use: stylusConfig,
+				include: [resolve(__dirname, '../src')],
 				exclude: /node_modules/
 			},
 			{
@@ -60,7 +80,7 @@ const config = {
 					{
 						loader: 'vue-loader',
 						options: {
-							plugins: ['@babel/transform-typescript'],
+							reactivityTransform: true,
 							preserveWhitespace: false // 不要留空白
 						}
 					}
@@ -68,37 +88,20 @@ const config = {
 				exclude: /node_modules/
 			},
 			{
-				test: /\.js$/,
+				test: /\.(j|t)sx?$/,
 				use: [
 					{
 						loader: 'babel-loader',
 						options: {
 							cacheDirectory: !isProd
 						}
-					}
-				]
-			},
-			{
-				test: /\.tsx?$/,
-				use: [
-					{
-						loader: 'babel-loader',
-						options: {
-							cacheDirectory: !isProd
-						}
-					},
-					{
-						loader: 'ts-loader'
 					}
 				],
-				// exclude: /node_modules/
+				exclude: /node_modules/
 			},
 			{
 				test: /\.svg$/,
-				use: [
-					'babel-loader',
-					'vuecomponent-svg-loader'
-				],
+				use: ['babel-loader', 'svg-component-loader'],
 				include: [resolve(__dirname, '../src')]
 			},
 			{
@@ -110,7 +113,7 @@ const config = {
 	},
 	resolve: {
 		// import引入文件的时候不用加后缀
-		extensions: ['.js', '.ts', '.tsx'],
+		extensions: ['.js', '.ts', '.tsx', 'vue'],
 		// 配置路径别名
 		alias: {
 			'@': resolve(__dirname, '../src')

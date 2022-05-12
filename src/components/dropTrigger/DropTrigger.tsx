@@ -11,10 +11,10 @@ import {
     getCurrentInstance
 } from 'vue';
 
+import { textEllipsis } from 'js-func-tools';
 import TriangleIcon from '@/assets/iconSvg/triangle.svg';
 import DeleteIcon from '@/assets/iconSvg/delete_icon.svg';
 import CloseIcon from '@/assets/iconSvg/icon_close.svg';
-import TextEllipsis from '@/utils/TextEllipsis';
 import GetScrollbarWidth from '@/utils/GetScrollbarWidth';
 import PopoverTip from '@/components/popoverTip/PopoverTip';
 import GetCaptionWidth from './GetCaptionWidth';
@@ -159,7 +159,7 @@ const DropTrigger = defineComponent({
             return w - scrollbarWidth - 64;
         });
 
-        let timerInputText: NodeJS.Timeout = null;
+        let timerInputText: number = null;
         // 提交输入的值
         watch(
             () => state.inputText,
@@ -353,7 +353,7 @@ const DropTrigger = defineComponent({
                                                             : (
                                                                 <span
                                                                     class="d-drop-trigger-selected-s"
-                                                                    onMouseenter={TextEllipsis}
+                                                                    onMouseenter={textEllipsis}
                                                                 >
                                                                     {(selectedData as Item).name}
                                                                 </span>
@@ -404,7 +404,7 @@ const DropTrigger = defineComponent({
                                                                 style={{
                                                                     maxWidth: `${tabMaxWidth.value}px`
                                                                 }}
-                                                                onMouseenter={TextEllipsis}
+                                                                onMouseenter={textEllipsis}
                                                             >
                                                                 {sd.name}
                                                             </span>

@@ -78,7 +78,7 @@ const DropdownView = defineComponent({
 						<Dropdown value={selVal2} data={dataSelect2}>
 							<span class="avatar">
 								<img
-									src="http://47.95.122.141:8200/persagy_ui_kit/images/avatar-default.png"
+									src="https://upload.jianshu.io/users/upload_avatars/11576163/f8c67791-cf2f-42ef-86dc-68a974830f8f.png?imageMogr2/auto-orient/strip|imageView2/1/w/80/h/80/format/webp"
 									alt=""
 								/>
 							</span>

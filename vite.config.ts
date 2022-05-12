@@ -7,17 +7,11 @@ import SvgLoader from 'vite-svg-loader';
 const port = 3003;
 
 export default defineConfig({
-    build: {
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true
-            }
-        }
-    },
     plugins: [
-        vue(),
-        vueJsx({ optimize: true, transformOn: true }),
+        vue({
+            reactivityTransform: true
+        }),
+        vueJsx(),
         SvgLoader()
     ],
     resolve: {

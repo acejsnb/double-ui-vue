@@ -877,19 +877,19 @@ export default [
 					{
 						id: 'groupMaintenance',
 						name: '集团维修管理',
-						url: 'http://101.201.49.1:9910/fms/',
+						url: 'http://101.201.49.1:9910/',
 						type: '1'
 					},
 					{
 						id: 'pcPermissionPackage',
 						name: '权限包管理',
-						url: 'http://dev.persagy.com/fms/',
+						url: 'http://dev.xxx.com/',
 						type: '3'
 					},
 					{
 						id: 'pcOrganizationModel',
 						name: '组织结构模板',
-						url: 'http://dev.persagy.com/fms/',
+						url: 'http://dev.xxx.com/',
 						type: '3'
 					}
 				]

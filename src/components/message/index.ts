@@ -11,7 +11,7 @@ type TOption = {
 };
 const Message = (options: TOption, time = 3) => {
     const opt: TOption = options;
-    let timer: NodeJS.Timeout = null;
+    let timer: number = null;
     opt.time = time;
     if (!msgBox) {
         msgBox = document.createElement('div');
@@ -64,14 +64,7 @@ const Message = (options: TOption, time = 3) => {
     return instance;
 };
 
-const SetMessage =
-	(type: string) =>
-	    (message: string, time = 3) =>
-	        Message({
-	            message,
-	            time,
-	            type
-	        });
+const SetMessage = (type: string) => (message: string, time = 3) => Message({ message, time, type });
 
 Message.info = SetMessage('info');
 Message.success = SetMessage('success');

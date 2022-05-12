@@ -1,6 +1,5 @@
 import './style.styl';
 import { defineComponent, provide, reactive, toRaw, ref } from 'vue';
-// @ts-ignore
 import { isNullObj } from 'js-func-tools';
 import type { AntType, SetRules } from './type';
 

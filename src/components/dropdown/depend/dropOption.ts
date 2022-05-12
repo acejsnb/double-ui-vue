@@ -1,56 +1,33 @@
-import CalcTargetPosition from '@/utils/CalcTargetPosition';
+import { getPlaceByTrigger } from 'js-func-tools';
 import CreateInstance, { Instance } from '@/utils/CreateInstance';
 import D, { Item } from './DOption';
-
-type TGetWidth = (data: Item[], minWidth: number, maxWidth: number) => number;
-// 获取宽度
-const GetWidth: TGetWidth = (data, minWidth, maxWidth) => {
-    const { body } = document;
-    const tag = document.createElement('div');
-    tag.className = 'd-drop-content';
-    if (minWidth) tag.style.minWidth = `${minWidth}px`;
-    if (maxWidth) tag.style.maxWidth = `${maxWidth}px`;
-    tag.style.height = '0';
-    tag.style.zIndex = '-100';
-    let html = '<div class="d-drop-option">';
-    data.forEach((d) => {
-        html += `<section class="d-drop-option-item"><span>${d.name}</span></section>`;
-    });
-    html += '</div>';
-
-    tag.innerHTML = html;
-    body.appendChild(tag);
-    const { width } = tag.getBoundingClientRect();
-    body.removeChild(tag);
-    return width;
-};
 
 const resetPosition = (instance: Instance) => {
     const { vm, tag } = instance;
     const {
         component: {
-            props: { data, minWidth, maxWidth, alignRight, translateX, maxCount },
+            props: { alignRight, translateX, maxCount },
             refs: { dropOption }
         },
         el
     } = vm;
-    const width =
-		minWidth && maxWidth && minWidth === maxWidth
-		    ? maxWidth
-		    : GetWidth(data as Item[], Number(minWidth), Number(maxWidth));
 
-    // const baseHei = 16 + (openSearch && 40), // 基本高度
-    const h = (data as Item[]).length * 38;
     const maxHeiByCount = (maxCount as number) * 38; // 最大容纳高度
-    let height;
-    if (h < maxHeiByCount) height = h;
-    else height = maxHeiByCount;
-    const { X, Y, P } = CalcTargetPosition(tag, height, Number(width), !!alignRight);
-    vm.component.props.position = P;
-    // 设置位置
-    el.style.top = `${Y}px`;
-    el.style.left = `${X + Number(translateX)}px`;
     (dropOption as HTMLElement).style.maxHeight = `${maxHeiByCount}px`;
+
+    const div = document.createElement('div');
+    div.className = 'm-drop-content';
+    div.innerHTML = el.innerHTML;
+    const { left, top, isDown } = getPlaceByTrigger({
+        trigger: tag,
+        dom: el as HTMLElement,
+        // dom: div,
+        isRight: !!alignRight
+    });
+    vm.component.props.position = isDown;
+    // 设置位置
+    el.style.top = `${top}px`;
+    el.style.left = `${left + Number(translateX)}px`;
 };
 
 interface Props {
