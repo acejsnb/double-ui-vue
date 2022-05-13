@@ -1,8 +1,6 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 文本分离插件，分离js和css
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const chalk = require('chalk');
 const { VueLoaderPlugin } = require('vue-loader'); // vue加载器
 const { name, version, author, license } = require('../package.json');
 
@@ -125,13 +123,7 @@ const config = {
 			test: /\.js$/
 		}),
 		new VueLoaderPlugin(), // vue加载器
-		new ProgressBarPlugin({
-			format: chalk.blue(
-				`* double-ui-vue build [:bar ${chalk.green.bold(':percent')}] (:elapsed seconds)`
-			),
-			clear: true,
-			summary: true
-		}),
+		new webpack.ProgressPlugin(),
 		new webpack.DefinePlugin({
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: false
