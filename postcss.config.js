@@ -1,3 +1,3 @@
 module.exports = {
-    plugins: [require('precss'), require('autoprefixer'), require('cssnano')]
+    plugins: [require('autoprefixer'), require('postcss-nested')]
 };
