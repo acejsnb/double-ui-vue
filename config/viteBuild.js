@@ -38,11 +38,12 @@ const rollupOptions = {
                     entry: single[key],
                     name: key, // umd的变量名
                     fileName: (format) => 'index.js', // 输出文件名
+                    // fileName: 'index', // 输出文件名
                     // formats: ['es', 'umd']
                     formats: ['umd']
                 },
                 outDir: resolve(__dirname, `../lib/${key}`)
             }
-        })
+        });
     }
 })()
