@@ -312,6 +312,11 @@ const components = [
         url: 'sidebarcustomview'
     },
     {
+        title: 'Skeleton',
+        more: '骨架屏',
+        url: 'skeletonview'
+    },
+    {
         title: 'TableGrid',
         more: '表格',
         url: 'tablegridview'

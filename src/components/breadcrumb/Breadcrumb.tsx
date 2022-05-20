@@ -11,7 +11,7 @@ const ArrowRightDom = () => (
 );
 
 const Breadcrumb = defineComponent({
-    name: 'Breadcrumb',
+    name: 'DBreadcrumb',
     directives: {
         titletip: {
             mounted: TitleTip,
@@ -22,7 +22,7 @@ const Breadcrumb = defineComponent({
         // 数据列表
         data: {
             type: Array as PropType<Item[]>,
-            default: (): Item[] => [],
+            default: () => [] as Item[],
             required: true
         },
         // 当前高亮显示的id
@@ -31,7 +31,7 @@ const Breadcrumb = defineComponent({
             default: ''
         },
         onChange: {
-            type: Function,
+            type: Function as PropType<(id: string) => void>,
             default: () => {}
         }
     },

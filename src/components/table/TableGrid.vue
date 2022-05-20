@@ -1,59 +1,83 @@
 <template>
-    <div :class="['x-table-grid', border ? 'x-table-grid_border' : 'x-table-grid_normal']"
-         ref="tableGridRef"
+  <div
+    ref="tableGridRef"
+    :class="['x-table-grid', border ? 'x-table-grid_border' : 'x-table-grid_normal']"
+  >
+    <!--表头-->
+    <div
+      ref="headerRef"
+      class="x-table-container x-table-container_header x-table-scroll_0"
+      @wheel.prevent
     >
-        <!--表头-->
-        <div class="x-table-container x-table-container_header x-table-scroll_0"
-             ref="headerRef"
-             @wheel.prevent
-        >
-            <TableHeader
-                :width="tableWidth"
-                :colsWidth="colsWidth"
-                :data="column"
-                :scrollLeftValue="scrollLeftValue"
-                :fixedRight="fixedRight"
-            />
-        </div>
-        <!--表体-->
-        <div class="x-table-main_body">
-            <div class="x-table-container x-table-container_body x-table-scroll_0"
-                 :style="styleHeight"
-                 ref="bodyRef"
-                 @scroll="bodyScrollHandle"
-            >
-                <TableBody
-                    ref="tableBodyRef"
-                    :width="tableWidth"
-                    :colsWidth="colsWidth"
-                    :column="column"
-                    :data="data"
-                    :scrollLeftValue="scrollLeftValue"
-                    :fixedRight="fixedRight"
-                >
-                    <template v-for="k in Object.keys(slots)" #[k]="{body}">
-                        <slot :name="k" :key="k" :item="body"></slot>
-                    </template>
-                </TableBody>
-            </div>
-            <!--表体竖向滚动条-->
-            <div class="x-table-scroll_body"
-                 v-if="styleHeight"
-                 :style="styleHeight"
-                 ref="bodyVerticalBarRef"
-                 @scroll="barScrollBodyHandle"
-            >
-                <div class="x-table-scrollbar_body" :style="styleScrollHeight" />
-            </div>
-            <i v-if="loading" class="x-table-loading_body">
-                <LoadingGreySvg />
-            </i>
-        </div>
-        <!--横向滚动条-->
-        <div class="x-table-scroll" ref="horizontalBarRef" @scroll="barScrollHandle">
-            <div class="x-table-scrollbar" :style="tableWidth && {width: `${tableWidth}px`}"/>
-        </div>
+      <TableHeader
+        :width="tableWidth"
+        :cols-width="colsWidth"
+        :data="column"
+        :scroll-left-value="scrollLeftValue"
+        :fixed-right="fixedRight"
+      />
     </div>
+    <!--表体-->
+    <div class="x-table-main_body">
+      <div
+        ref="bodyRef"
+        class="x-table-container x-table-container_body x-table-scroll_0"
+        :style="styleHeight"
+        @scroll="bodyScrollHandle"
+      >
+        <TableBody
+          ref="tableBodyRef"
+          :width="tableWidth"
+          :cols-width="colsWidth"
+          :column="column"
+          :data="data"
+          :scroll-left-value="scrollLeftValue"
+          :fixed-right="fixedRight"
+        >
+          <template
+            v-for="k in Object.keys(slots)"
+            #[k]="{body}"
+          >
+            <slot
+              :key="k"
+              :name="k"
+              :item="body"
+            />
+          </template>
+        </TableBody>
+      </div>
+      <!--表体竖向滚动条-->
+      <div
+        v-if="styleHeight"
+        ref="bodyVerticalBarRef"
+        class="x-table-scroll_body"
+        :style="styleHeight"
+        @scroll="barScrollBodyHandle"
+      >
+        <div
+          class="x-table-scrollbar_body"
+          :style="styleScrollHeight"
+        />
+      </div>
+      <i
+        v-if="loading"
+        class="x-table-loading_body"
+      >
+        <LoadingGreySvg />
+      </i>
+    </div>
+    <!--横向滚动条-->
+    <div
+      ref="horizontalBarRef"
+      class="x-table-scroll"
+      @scroll="barScrollHandle"
+    >
+      <div
+        class="x-table-scrollbar"
+        :style="tableWidth && {width: `${tableWidth}px`}"
+      />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -124,9 +148,9 @@ const tableBodyRef = ref(null);
 const fixedRight = computed(() => {
     const tableClientWidth = tableGridRef.value?.clientWidth ?? 0; // 表格视宽
     return (
-        (tableClientWidth + scrollLeftValue.value
-        < (tableBodyRef.value?.instance.clientWidth ?? 0))
-        || (!scrollLeftValue.value && tableClientWidth < tableWidth.value)
+        (tableClientWidth + scrollLeftValue.value <
+        (tableBodyRef.value?.instance.clientWidth ?? 0)) ||
+        (!scrollLeftValue.value && tableClientWidth < tableWidth.value)
     );
 });
 
