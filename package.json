@@ -31,7 +31,7 @@
 		"clean:node_modules": "rimraf ./node_modules",
 		"dev": "webpack serve --mode development --config ./config/dev.js",
 		"prod": "webpack --mode production --config ./config/prod.js",
-		"create:index": "node ./config/createIndex.js",
+		"create:index": "go run ./config/createIndex.go",
 		"single": "webpack --mode production --config ./config/single.js && npm run create:index",
 		"baseCss": "webpack --mode production --config ./config/baseCss.js",
 		"build:webpack": "npm run clean && npm run baseCss && npm run single",
