@@ -3,7 +3,7 @@ import { defineComponent, getCurrentInstance } from 'vue';
 import { textEllipsis } from 'js-func-tools';
 
 const Checkbox = defineComponent({
-    name: 'Checkbox',
+    name: 'DCheckbox',
     props: {
         /**
 		 * checked-选中

@@ -6,18 +6,18 @@
  * @constructor
  */
 const AddClassNameForText = (text1: string, text2: string, className: string) => {
-	const tArr1 = text1.split('');
-	const tArr2 = Array.from(new Set(text2.split('')));
-	const formatArr = tArr1.map((d) => {
-		if (tArr2.includes(d)) return `<span class="${className}">${d}</span>`;
-		return d;
-	});
-	return formatArr.join('');
+    const tArr1 = text1.split('');
+    const tArr2 = Array.from(new Set(text2.split('')));
+    const formatArr = tArr1.map((d) => {
+        if (tArr2.includes(d)) return `<span class="${className}">${d}</span>`;
+        return d;
+    });
+    return formatArr.join('');
 };
 const GetSameItem = (text1: string, text2: string) => {
-	const tArr1 = text1.split('');
-	const tArr2 = text2.split('');
-	return tArr1.filter((d) => tArr2.includes(d)).join('');
+    const tArr1 = text1.split('');
+    const tArr2 = text2.split('');
+    return tArr1.filter((d) => tArr2.includes(d)).join('');
 };
 
 export default AddClassNameForText;

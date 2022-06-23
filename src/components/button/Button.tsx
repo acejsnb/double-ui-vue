@@ -4,7 +4,7 @@ import Loading16px from '@/components/loading16px/Loading16px';
 import { defineComponent, PropType } from 'vue';
 
 const Button = defineComponent({
-    name: 'Button',
+    name: 'DButton',
     props: {
         type: {
             type: String,

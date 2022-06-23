@@ -2,10 +2,11 @@ node_modules
 package.json
 package-lock.json
 server.js
-/docs
+server2.js
+/docs/
+/lib/
+/config/
 .babelrc
 get_ip.js
 get_time.js
-config
-lib
-lib/index.js
+postcss.config.js

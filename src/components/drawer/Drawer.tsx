@@ -14,7 +14,7 @@ import IconClose from '@/assets/iconSvg/icon_close.svg';
 import Loading16px from '../loading16px/Loading16px';
 
 const Drawer = defineComponent({
-    name: 'Drawer',
+    name: 'DDrawer',
     props: {
         /**
 		 * 侧拉窗显示状态

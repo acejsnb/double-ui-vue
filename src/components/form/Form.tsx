@@ -4,7 +4,7 @@ import { isNullObj } from 'js-func-tools';
 import type { AntType, SetRules } from './type';
 
 const Form = defineComponent({
-    name: 'Form',
+    name: 'DForm',
     props: {
         name: {
             type: String,

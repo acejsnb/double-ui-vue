@@ -45,7 +45,7 @@ const Tooltip = (el: HTMLElement, binding: any) => {
             if (clientWidth <= scrollWidth) return;
             title = target.innerHTML.replace(reg, '');
         }
-        timer = setTimeout(() => {
+        timer = window.setTimeout(() => {
             dom = document.createElement('div');
             document.body.appendChild(dom);
 

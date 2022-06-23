@@ -1,6 +1,6 @@
 # double-ui-vue：
 
--   基于 vue 的 ui 库
+-   基于 vue3 的 ui 库
 
 ```text
 此组件库适用于vue3.x
@@ -15,27 +15,38 @@
 
 ## 安装
 
--   `npm install -S double-ui-vue`
+-   `npm i double-ui-vue`
 
 ## 按需引入
 
 -   引入组件 `import { Button } from 'double-ui-vue'`
--   安装依赖包 `npm i -D babel-plugin-import`
--   在 .babelrc 中的 plugins 里添加
+-   安装依赖包 `npm i -D vite-plugin-vue-import`
+-   在 babel.config.js 中的 plugins 里添加
 
+- 默认加载`double-ui-vue/lib/[componentName]/style.css`
 ```js
-[
-  "import",
-  {
-    "libraryName": "double-ui-vue",
-    "style": (name) => `${name}/style.css`
-  }
-]
+// vite.config.js
+import { defineConfig } from 'vite';
+import viteComponentsImport from 'vite-plugin-vue-import';
+
+export default defineConfig({
+    // ...
+    plugins: [
+        viteComponentsImport([
+            {
+                libName: 'double-ui-vue'
+            }
+        ])
+    ]
+    // ...
+});
+
 ```
+- 更多 `vite-plugin-vue-import` 使用，请访问(https://www.npmjs.com/package/vite-plugin-vue-import)
 
 ## 启动说明
 
 -   npm run dev `启动开发预览`
+-   npm run vite:dev `开发预览`
 -   npm run prod `打包成静态`
--   npm run single `打包单个组件`
--   npm run vite `开发预览`
+-   npm run build `打包组件`

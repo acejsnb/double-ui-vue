@@ -2,7 +2,7 @@ import './style.styl';
 import { Ref, defineComponent, ref, watch, inject, computed } from 'vue';
 
 const Input = defineComponent({
-    name: 'Input',
+    name: 'DInput',
     props: {
         type: {
             type: String,

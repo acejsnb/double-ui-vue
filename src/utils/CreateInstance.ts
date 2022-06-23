@@ -19,27 +19,27 @@ interface Options<T> {
 
 let dom: HTMLDivElement;
 const CreateInstance = <T>(options: Options<T>): Instance => {
-	const { tag, props, component, resetPosition } = options;
-	if (!dom) {
-		dom = document.createElement('div');
-		document.body.appendChild(dom);
-	}
-	const vm = createVNode(component, props as { [key: string]: any });
-	const instance = {
-		vm,
-		tag,
-		resetPosition() {
-			if (resetPosition) resetPosition(instance);
-		},
-		remove() {
-			if (vm.component.isUnmounted) return;
-			render(null, dom);
-			// document.body.removeChild(dom);
-		}
-	};
+    const { tag, props, component, resetPosition } = options;
+    if (!dom) {
+        dom = document.createElement('div');
+        document.body.appendChild(dom);
+    }
+    const vm = createVNode(component, props as { [key: string]: any });
+    const instance = {
+        vm,
+        tag,
+        resetPosition() {
+            if (resetPosition) resetPosition(instance);
+        },
+        remove() {
+            if (vm.component.isUnmounted) return;
+            render(null, dom);
+            // document.body.removeChild(dom);
+        }
+    };
 
-	render(vm, dom);
-	return instance;
+    render(vm, dom);
+    return instance;
 };
 
 export default CreateInstance;

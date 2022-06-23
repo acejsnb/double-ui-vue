@@ -166,7 +166,7 @@ const DropTrigger = defineComponent({
             (n, o) => {
                 if (n === o) return;
                 if (timerInputText) clearTimeout(timerInputText);
-                timerInputText = setTimeout(() => {
+                timerInputText = window.setTimeout(() => {
                     emit('getInputText', n);
                 }, 500);
             }

@@ -170,7 +170,7 @@ const DOption = defineComponent({
             (n, o) => {
                 if (n === o) return;
                 if (timer) clearTimeout(timer);
-                timer = setTimeout(() => {
+                timer = window.setTimeout(() => {
                     searchHandle(n);
                 }, 300);
             }
@@ -199,7 +199,7 @@ const DOption = defineComponent({
         };
         const dropLeave = () => {
             const { trigger, parentState } = props;
-            if (trigger === 'hover') parentState.dropTimer = setTimeout(dropClose, 300);
+            if (trigger === 'hover') parentState.dropTimer = window.setTimeout(dropClose, 300);
         };
 
         const scrollTopHandle = (e: UIEvent) => {

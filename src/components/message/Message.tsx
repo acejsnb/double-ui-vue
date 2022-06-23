@@ -9,7 +9,7 @@ import HintSuccess from '@/assets/iconSvg/hint_success.svg';
 import HintWaring from '@/assets/iconSvg/hint_waring.svg';
 
 const Message = defineComponent({
-    name: 'Message',
+    name: 'DMessage',
     props: {
         type: {
             type: String,

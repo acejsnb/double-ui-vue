@@ -7,7 +7,7 @@ import AddClassNameForText, { GetSameItem } from './depend/AddClassNameForText';
 import Drop, { Instance } from './depend/Drop';
 
 const Select = defineComponent({
-    name: 'Select',
+    name: 'DSelect',
     props: {
         width: {
             type: [String, Number],

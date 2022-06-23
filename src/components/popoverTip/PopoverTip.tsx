@@ -55,7 +55,7 @@ const PopoverTip = defineComponent({
                 clearTimeout(leaveTimer);
                 leaveTimer = null;
             } else {
-                leaveTimer = setTimeout(() => {
+                leaveTimer = window.setTimeout(() => {
                     changeTipShow(false);
                 }, 500);
             }
@@ -66,7 +66,7 @@ const PopoverTip = defineComponent({
                 leaveTimer = null;
             }
             if (!props.content || props.dropShow || state.tipShow) return;
-            enterTimer = setTimeout(() => {
+            enterTimer = window.setTimeout(() => {
                 if (tipModal) {
                     tipModal.resetPosition();
                 } else {
@@ -88,7 +88,7 @@ const PopoverTip = defineComponent({
                 clearTimeout(enterTimer);
                 enterTimer = null;
             }
-            leaveTimer = setTimeout(() => {
+            leaveTimer = window.setTimeout(() => {
                 if (tipModal) tipModal.setShow(false);
             }, 500);
         };

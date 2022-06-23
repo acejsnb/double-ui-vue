@@ -123,7 +123,7 @@ const DropBox = defineComponent({
                 if (n) {
                     if (timer) clearTimeout(timer);
                     const { data } = props;
-                    timer = setTimeout(() => {
+                    timer = window.setTimeout(() => {
                         setDropData(JSON.parse(JSON.stringify(data)), n);
                     }, 300);
                 } else {

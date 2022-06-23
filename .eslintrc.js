@@ -1,4 +1,5 @@
 module.exports = {
+    root: true,
     env: {
         browser: true,
         es2021: true,
@@ -19,22 +20,27 @@ module.exports = {
         h: true
     },
     extends: [
-        'eslint:recommended',
-        'plugin:vue/vue3-recommended',
-        '@vue/standard',
-        '@vue/typescript/recommended'
+        'plugin:vue/vue3-recommended'
     ],
     parserOptions: {
-        ecmaVersion: 12,
+        ecmaVersion: 13,
         sourceType: 'module',
         ecmaFeatures: {
             // jsx: true,
             tsx: true,
             generators: true,
             experimentalObjectRestSpread: true
+        },
+        parser: '@typescript-eslint/parser'
+    },
+    plugins: ['vue', '@typescript-eslint', 'import', 'node', 'promise'],
+    settings: {
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx']
+            }
         }
     },
-    plugins: ['vue', '@typescript-eslint'],
     rules: {
         indent: ['error', 4],
         semi: [2, 'always'],
@@ -51,13 +57,13 @@ module.exports = {
         'no-unused-expressions': 0,
         // 'comma-dangle': [2, 'always-multiline'],
         'comma-dangle': [2, 'never'],
-        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
         'import/no-unresolved': [
             2,
-            { ignore: ['.js', '.ts', '.tsx', '^@/', '^./', '^../', '^../Types'] }
+            {ignore: ['.js', '.ts', '.tsx', '^@/', '^./', '^../', '^../Types']}
         ],
         'import/extensions': [
-            2,
+            'error',
             {
                 js: 'never',
                 ts: 'never',
@@ -73,6 +79,7 @@ module.exports = {
         ],
         'vue/no-multiple-template-root': 0,
         '@typescript-eslint/no-empty-function': 0,
-        '@typescript-eslint/ban-ts-comment': 1
+        '@typescript-eslint/ban-ts-comment': 1,
+        'vue/require-valid-default-prop': 0
     }
 };

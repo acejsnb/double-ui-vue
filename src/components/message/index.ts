@@ -48,7 +48,7 @@ const Message = (options: TOption, time = 3) => {
                 timer = null;
             }
             vm.component.props.message = msg;
-            timer = setTimeout(() => {
+            timer = window.setTimeout(() => {
                 instance.remove();
             }, opt.time * 1000);
         }
@@ -56,7 +56,7 @@ const Message = (options: TOption, time = 3) => {
     nextTick(() => {
         vm.component.props.removeMessage = instance.remove;
         instance.setShow(true);
-        timer = setTimeout(() => {
+        timer = window.setTimeout(() => {
             instance.remove();
         }, opt.time * 1000);
     });

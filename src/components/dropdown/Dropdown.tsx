@@ -5,7 +5,7 @@ import Triangle from '@/assets/iconSvg/triangle.svg';
 import DropOption, { Item, Instance } from './depend/dropOption';
 
 const Dropdown = defineComponent({
-    name: 'Dropdown',
+    name: 'DDropdown',
     props: {
         // 数据列表
         data: {
@@ -175,7 +175,7 @@ const Dropdown = defineComponent({
             const { disabled, trigger } = props;
             if (disabled) return;
             if (trigger === 'hover' && dOption) {
-                state.dropTimer = setTimeout(() => {
+                state.dropTimer = window.setTimeout(() => {
                     state.optionStatus = false;
                 }, 300);
             }

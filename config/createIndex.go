@@ -27,13 +27,13 @@ func main() {
 		log.Fatal("-----", errReadDir)
 	}
 
-	var css = banner + "\n@import './base/style.css';\n"
+	var css = banner + "\n"
 	var jsImport string
 
 	var stringBuilder strings.Builder
 	for _, file := range files {
 		fileName := file.Name()
-		if !(fileName == "base" || strings.Contains(fileName, "index")) {
+		if !(strings.Contains(fileName, "base") || strings.Contains(fileName, "index")) {
 			css += fmt.Sprintf("@import './%v/style.css';\n", fileName)
 			jsImport += fmt.Sprintf("import %v from './%v';\n", fileName, fileName)
 			stringBuilder.WriteString(fileName + ",")

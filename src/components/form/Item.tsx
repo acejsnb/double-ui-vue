@@ -1,6 +1,5 @@
 import { PropType, Ref, defineComponent, provide, inject, ref } from 'vue';
-// @ts-ignore
-import { formValidate } from 'js-func-tools';
+import { FormValidateRule, formValidate } from 'js-func-tools';
 import type { AntType, SetRules } from './type';
 
 const FormItem = defineComponent({
@@ -27,7 +26,7 @@ const FormItem = defineComponent({
             default: false
         },
         rules: {
-            type: Array as PropType<AntType[]>,
+            type: Array as PropType<FormValidateRule[]>,
             default: []
         }
     },
