@@ -1,7 +1,7 @@
 /**
  * 单组件打包
  */
-// @ts-ignore
+
 module.exports = {
     Breadcrumb: './src/components/breadcrumb',
     Button: './src/components/button',

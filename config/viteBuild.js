@@ -36,11 +36,13 @@ const rollupOptions = {
                 rollupOptions,
                 lib: {
                     entry: single[key],
-                    name: key, // umd的变量名
-                    fileName: (format) => 'index.js', // 输出文件名
+                    // umd的变量名
+                    name: key,
+                    // 输出文件名
+                    fileName: (format) => 'index.js',
                     // fileName: 'index', // 输出文件名
-                    // formats: ['es', 'umd']
-                    formats: ['umd']
+                    formats: ['es', 'umd']
+                    // formats: ['umd']
                 },
                 outDir: resolve(__dirname, `../lib/${key}`)
             }
