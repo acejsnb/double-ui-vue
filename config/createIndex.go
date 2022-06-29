@@ -35,10 +35,11 @@ func main() {
 	for _, file := range files {
 		fileName := file.Name()
 		if !(strings.Contains(fileName, "base") || strings.Contains(fileName, "index")) {
+			componentName := strFirstToUpper(fileName)
 			css += fmt.Sprintf("@import './%v/style.css';\n", fileName)
-			jsImport += fmt.Sprintf("import %v from './%v';\n", fileName, fileName)
-			tsImport += fmt.Sprintf("export { default as %v } from './%v';\n", strFirstToUpper(fileName), fileName)
-			stringBuilder.WriteString(fileName + ",")
+			jsImport += fmt.Sprintf("import %v from './%v';\n", componentName, fileName)
+			tsImport += fmt.Sprintf("export { default as %v } from './%v';\n", componentName, fileName)
+			stringBuilder.WriteString(componentName + ",")
 		}
 	}
 	sb := strings.TrimRight(stringBuilder.String(), ",")
