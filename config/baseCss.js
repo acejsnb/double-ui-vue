@@ -11,7 +11,7 @@ build({
                 assetFileNames: 'base.css'
             }
         },
-        outDir: 'lib',
+        outDir: 'es',
     }
 }).then(() => {
     console.log('base.css打包成功')

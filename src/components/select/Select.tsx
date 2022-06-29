@@ -81,6 +81,7 @@ const Select = defineComponent({
             default: () => {}
         }
     },
+    emits: ['update:modelValue', 'change'],
     // emits: ['update:modelValue', 'change'],
     setup(props, { emit }) {
         const state = reactive<IState>({

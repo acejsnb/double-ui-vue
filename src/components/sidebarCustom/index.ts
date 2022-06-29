@@ -1,2 +1,2 @@
-import sidebarCustom from './SidebarCustom';
-export default sidebarCustom;
+import SidebarCustom from './SidebarCustom';
+export default SidebarCustom;

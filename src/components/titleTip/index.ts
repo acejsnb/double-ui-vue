@@ -20,7 +20,7 @@ let dom: HTMLDivElement;
 let toolTipInstance: App<Element>;
 let timer: number = null;
 
-const Tooltip = (el: HTMLElement, binding: any) => {
+const TitleTip = (el: HTMLElement, binding: any) => {
     const reg = /<\/?.+?\/?>/g; // 匹配标签元素的正则
     const winWidth =
 		window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth; // 获取窗口的宽度
@@ -93,15 +93,15 @@ const Tooltip = (el: HTMLElement, binding: any) => {
             clearTimeout(timer);
             timer = null;
         }
-        Tooltip.remove();
+        TitleTip.remove();
     };
     el.onmouseleave = clearVm;
     el.onmouseup = clearVm;
 };
-Tooltip.remove = () => {
+TitleTip.remove = () => {
     if (!toolTipInstance) return;
     toolTipInstance.unmount();
     document.body.removeChild(dom);
     toolTipInstance = null;
 };
-export default Tooltip;
+export default TitleTip;

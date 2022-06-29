@@ -80,9 +80,8 @@ const DropTrigger = defineComponent({
             default: false
         },
         selectedData: {
-            type: (Object as PropType<Item>) || (Array as PropType<Item[]>)
-            // type: [Object as PropType<Item>, Array as PropType<Item[]>]
-            // default: []
+            type: (Object as PropType<Item>) || (Array as PropType<Item[]>),
+            default: []
         },
         // 下拉列表展开
         dropShow: {
@@ -112,6 +111,7 @@ const DropTrigger = defineComponent({
             default: () => {}
         }
     },
+    emits: ['getInputText', 'click', 'clearItem'],
     setup(props, { emit }) {
         const state = reactive<IState>({
             // 输入的内容

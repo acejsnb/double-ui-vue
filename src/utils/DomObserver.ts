@@ -16,24 +16,24 @@ type Options = { ele: HTMLElement; options: TOptions; cb: TCb };
 type TDomObserver = (options: Options) => any;
 
 const DomObserver: TDomObserver = ({
-	ele,
-	options = { attributes: true, childList: true, subtree: true },
-	cb
+    ele,
+    options = { attributes: true, childList: true, subtree: true },
+    cb
 }) => {
-	const {
-		MutationObserver = null,
-		WebKitMutationObserver = null,
-		MozMutationObserver = null
-	} = window as any;
-	const ObjObserver = MutationObserver || WebKitMutationObserver || MozMutationObserver || null;
-	if (!ObjObserver) return;
-	let Observer = new ObjObserver(cb);
-	Observer.observe(ele, options);
-	Observer.close = () => {
-		Observer.disconnect();
-		Observer = null;
-	};
-	return Observer;
+    const {
+        MutationObserver = null,
+        WebKitMutationObserver = null,
+        MozMutationObserver = null
+    } = window as any;
+    const ObjObserver = MutationObserver || WebKitMutationObserver || MozMutationObserver || null;
+    if (!ObjObserver) return;
+    let Observer = new ObjObserver(cb);
+    Observer.observe(ele, options);
+    Observer.close = () => {
+        Observer.disconnect();
+        Observer = null;
+    };
+    return Observer;
 };
 
 export default DomObserver;

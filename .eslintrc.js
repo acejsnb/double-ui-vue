@@ -80,6 +80,7 @@ module.exports = {
         'vue/no-multiple-template-root': 0,
         '@typescript-eslint/no-empty-function': 0,
         '@typescript-eslint/ban-ts-comment': 1,
-        'vue/require-valid-default-prop': 0
+        'vue/require-valid-default-prop': 0,
+        'vue/html-indent': [1, 4]
     }
 };

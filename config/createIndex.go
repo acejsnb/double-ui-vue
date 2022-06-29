@@ -22,13 +22,14 @@ func main() {
 
 	banner := getBanner(pwd)
 
-	files, errReadDir := os.ReadDir("lib")
+	files, errReadDir := os.ReadDir("es")
 	if errReadDir != nil {
 		log.Fatal("-----", errReadDir)
 	}
 
 	var css = banner + "\n"
 	var jsImport string
+	var tsImport string
 
 	var stringBuilder strings.Builder
 	for _, file := range files {
@@ -36,23 +37,42 @@ func main() {
 		if !(strings.Contains(fileName, "base") || strings.Contains(fileName, "index")) {
 			css += fmt.Sprintf("@import './%v/style.css';\n", fileName)
 			jsImport += fmt.Sprintf("import %v from './%v';\n", fileName, fileName)
+			tsImport += fmt.Sprintf("export { default as %v } from './%v';\n", fileName, fileName)
 			stringBuilder.WriteString(fileName + ",")
 		}
 	}
 	sb := strings.TrimRight(stringBuilder.String(), ",")
-	jsExportDefault := fmt.Sprintf("\nexport default { %v };", sb)
+	components := fmt.Sprintf("\nconst components = { %v };\n", sb)
+	jsExportDefault := fmt.Sprintf("\nexport default { install,%v };", sb)
 	jsExport := fmt.Sprintf("\nexport { %v };", sb)
-	js := banner + jsImport + jsExportDefault + jsExport
 
-	errCssWrite := os.WriteFile(filepath.Join(pwd, "lib/index.css"), []byte(css), 0666)
+	var install = `const install = (app) => {
+    Object.keys(components).forEach((name) => {
+        if (name === 'Message') app.config.globalProperties.$message = Message;
+        else if (name === 'TitleTip')
+            app.directive('titletip', { mounted: TitleTip, beforeUnmount: TitleTip.remove });
+        else app.component(name, components[name]);
+    });
+};`
+
+	js := banner + jsImport + components + install + jsExportDefault + jsExport
+	dts := "import type { App } from 'vue';\ndeclare const install: (app: App) => App<any>;\n\nexport { install };\n" + tsImport
+
+	errCssWrite := os.WriteFile(filepath.Join(pwd, "es/index.css"), []byte(css), 0666)
 	if errCssWrite != nil {
 		log.Fatal("css写入错误-----", errCssWrite)
 	}
 
-	errJsWrite := os.WriteFile(filepath.Join(pwd, "lib/index.js"), []byte(js), 0666)
+	errJsWrite := os.WriteFile(filepath.Join(pwd, "es/index.js"), []byte(js), 0666)
 	if errJsWrite != nil {
 		log.Fatal("js写入错误-----", errJsWrite)
 	}
+
+	errDtsWrite := os.WriteFile(filepath.Join(pwd, "es/index.d.ts"), []byte(dts), 0666)
+	if errDtsWrite != nil {
+		log.Fatal("dts写入错误-----", errDtsWrite)
+	}
+
 	//copyFile(pwd)
 }
 
@@ -77,7 +97,7 @@ func copyFile(pwd string) {
 	if errRead != nil {
 		log.Fatal("-----", errRead)
 	}
-	errWrite := os.WriteFile(filepath.Join(pwd, "lib/index.d.ts"), data, 0666)
+	errWrite := os.WriteFile(filepath.Join(pwd, "es/index.d.ts"), data, 0666)
 	if errWrite != nil {
 		log.Fatal("-----", errWrite)
 	}

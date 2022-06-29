@@ -2,8 +2,8 @@ import './style.styl';
 
 import { defineComponent } from 'vue';
 
-const Loading16px = defineComponent({
-    name: 'Loading16px',
+const MiniLoading = defineComponent({
+    name: 'MiniLoading',
     props: {
         color: {
             type: String,
@@ -13,9 +13,9 @@ const Loading16px = defineComponent({
 
     setup(props) {
         return () => (
-            <div class="d-loading16px">
+            <div class="d-min-loading">
                 <svg
-                    class="d-loading16px-line"
+                    class="d-min-loading-line"
                     viewBox="0 0 16 16"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -31,4 +31,4 @@ const Loading16px = defineComponent({
     }
 });
 
-export default Loading16px;
+export default MiniLoading;

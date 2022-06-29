@@ -1,5 +1,5 @@
 import './index.styl';
-import Loading16px from '@/components/loading16px/Loading16px';
+import MiniLoading from '@/components/miniLoading/MiniLoading';
 
 import { defineComponent, PropType } from 'vue';
 
@@ -52,7 +52,7 @@ const Button = defineComponent({
                     onClick={clickHandle}
                 >
                     <section class="d-button-content">
-                        {loading && <span class="d-button-loading"><Loading16px/></span>}
+                        {loading && <span class="d-button-loading"><MiniLoading/></span>}
                         <span class="d-button-text">{slots.default && slots.default()}</span>
                     </section>
                 </button>

@@ -4,7 +4,9 @@ package-lock.json
 server.js
 server2.js
 /docs/
+/es/
 /lib/
+/dist/
 /config/
 .babelrc
 get_ip.js

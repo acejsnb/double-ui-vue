@@ -11,7 +11,7 @@ import {
 } from 'vue';
 
 import IconClose from '@/assets/iconSvg/icon_close.svg';
-import Loading16px from '../loading16px/Loading16px';
+import MiniLoading from '../miniLoading/MiniLoading';
 
 const Drawer = defineComponent({
     name: 'DDrawer',
@@ -144,7 +144,7 @@ const Drawer = defineComponent({
                                 {slots?.content()}
                                 {loadingMore && (
                                     <section class="d-drawer-content-loading">
-                                        <Loading16px class="d-loading16px-drawer" />
+                                        <MiniLoading class="d-loading16px-drawer" />
                                         <span>加载中...</span>
                                     </section>
                                 )}
@@ -159,7 +159,7 @@ const Drawer = defineComponent({
                             {loading && (
                                 <div class="d-drawer-loading">
                                     <section class="d-drawer-loading-svg">
-                                        <Loading16px color="#c3c7cb" />
+                                        <MiniLoading color="#c3c7cb" />
                                     </section>
                                 </div>
                             )}

@@ -23,7 +23,7 @@
 -   安装依赖包 `npm i -D vite-plugin-vue-import`
 -   在 babel.config.js 中的 plugins 里添加
 
-- 默认加载`double-ui-vue/lib/[componentName]/style.css`
+- 默认加载`double-ui-vue/es/[componentName]/style.css`
 ```js
 // vite.config.js
 import { defineConfig } from 'vite';
