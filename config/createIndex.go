@@ -37,7 +37,7 @@ func main() {
 		if !(strings.Contains(fileName, "base") || strings.Contains(fileName, "index")) {
 			css += fmt.Sprintf("@import './%v/style.css';\n", fileName)
 			jsImport += fmt.Sprintf("import %v from './%v';\n", fileName, fileName)
-			tsImport += fmt.Sprintf("export { default as %v } from './%v';\n", fileName, fileName)
+			tsImport += fmt.Sprintf("export { default as %v } from './%v';\n", strFirstToUpper(fileName), fileName)
 			stringBuilder.WriteString(fileName + ",")
 		}
 	}
@@ -101,4 +101,10 @@ func copyFile(pwd string) {
 	if errWrite != nil {
 		log.Fatal("-----", errWrite)
 	}
+}
+
+func strFirstToUpper(str string) string {
+	slice := strings.Split(str, "")
+	slice[0] = strings.ToUpper(slice[0])
+	return strings.Join(slice, "")
 }

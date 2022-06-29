@@ -1,30 +1,35 @@
 const { resolve } = require('path')
 const { defineConfig, build } = require('vite')
-const vue = require('@vitejs/plugin-vue')
-const vueJsx = require('@vitejs/plugin-vue-jsx')
+const Vue = require('@vitejs/plugin-vue')
+const VueJsx = require('@vitejs/plugin-vue-jsx')
 const SvgLoader = require('vite-svg-loader');
-const dts = require('vite-plugin-dts')
+const Dts = require('vite-plugin-dts')
 
-const single = require('../src/single.ts');
+const components = require('../src/components.ts');
 
 const firstToUpperCase = (str) => {
     const arr = str.split('');
-    arr[0].toUpperCase()
+    arr[0] = arr[0].toUpperCase()
+    return arr.join('')
+};
+const firstToLowerCase = (str) => {
+    const arr = str.split('');
+    arr[0] = arr[0].toLowerCase()
     return arr.join('')
 };
 
 // vite基础配置
-const baseConfig = (key) => defineConfig({
+const baseConfig = (entry, out) => defineConfig({
     mode: 'production',
     configFile: false,
     publicDir: false,
     plugins: [
-        vue({ reactivityTransform: true }), vueJsx(), SvgLoader(),
-        dts({
-            // outputDir: `es/${firstToUpperCase(key)}`,
-            entryRoot: single[key],
-            include: ['src/components/**/*.ts', 'src/components/**/*.d.ts', 'src/components/**/*.tsx', 'src/components/**/*.vue'],
-            exclude: ['node_modules', 'dist', 'lib', 'es']
+        Vue({ reactivityTransform: true }), VueJsx(), SvgLoader(),
+        Dts({
+            entryRoot: entry,
+            // outputDir: `es/${out}`,
+            include: ['src/components/**/*.ts', 'src/components/**/*.tsx', 'src/components/**/*.vue'],
+            exclude: ['node_modules/**', 'dist/**', 'lib/**', 'es/**']
         })
     ],
     resolve: {
@@ -45,28 +50,32 @@ const rollupOptions = {
     }
 };
 
-const keys = Object.keys(single)
-console.log('---keys---', keys);
+const names = Object.keys(components)
 const start = async () => {
-    for (const key of keys) {
-        console.log('=== Start packaging ===', key, single[key]);
+    for (const name of names) {
+        const entryPath = components[name],
+            outPath = firstToLowerCase(name);
+        console.log('=== Start packaging name ===', name);
+        console.log('=== Start packaging ===', name, entryPath);
         await build({
-            ...baseConfig(key),
+            ...baseConfig(entryPath, outPath),
             build: {
                 rollupOptions,
                 minify: true,
+                // minify: 'esbuild',
                 lib: {
-                    entry: single[key],
-                    name: key,
+                    entry: entryPath,
+                    name,
                     fileName: (format) => 'index.js',
                     // formats: ['es', 'umd']
+                    formats: ['es']
                 },
-                outDir: `es/${key}`
+                outDir: `es/${outPath}`
             }
         });
     }
 }
 
 start().then(() => {
-    console.log('------ Build Success ------')
+    console.log('------ Package succeeded ------')
 });
