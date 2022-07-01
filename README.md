@@ -42,7 +42,7 @@ export default defineConfig({
 });
 
 ```
-- 更多 `vite-plugin-vue-import` 使用，请访问(https://www.npmjs.com/package/vite-plugin-vue-import)
+- 更多 `vite-plugin-vue-import` 使用，请访问[vite-plugin-vue-import](https://github.com/xiongshuang/vite-plugin-vue-import)
 
 ## 启动说明
 

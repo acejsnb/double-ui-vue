@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const baseConfig = require('./base');
 
-const single = require('../src/single.ts');
+const single = require('../src/components.ts');
 const objEntry = {};
 for (const key of Object.keys(single)) {
 	objEntry[key] = single[key];

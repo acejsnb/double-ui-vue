@@ -1,25 +1,23 @@
-const express = require('express');
-
-const app = express();
-
-const router = express.Router();
-
-router.get('/', (req, res, next) => {
-	req.url = '/index.html';
-	next();
-});
-
-app.use(router);
-
-// app.use(express.static('./double-ui-vue'))
-app.use(express.static('./production'));
-// app.use(express.static('./docs/dist'));
-
+const { join } = require('path');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const open = require('opn');
 
-// 启动成功打开网页
+const Koa = require('koa');
+// const KoaRouter = require('-router');
+const serve = require('koa-static');
+
+const app = new Koa();
+
+app.use(serve(join(__dirname, 'production')));
+
+// 响应
+app.use(async (ctx) => {
+	// ctx.body = 'Hello Koa';
+	await ctx.render('./index.html');
+});
+
 const port = 3550; // 端口号
-module.exports = app.listen(port, (err) => {
+app.listen(port, (err) => {
 	if (err) {
 		console.log(err);
 		return;

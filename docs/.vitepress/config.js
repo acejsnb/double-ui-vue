@@ -1,7 +1,7 @@
 export default {
     base: '/docs/',
     lang: 'en-US',
-    title: 'components',
+    title: 'double-ui-vue',
     description: 'vue3组件库文档',
     // 打包目录
     dest: './dist',
@@ -19,67 +19,44 @@ export default {
                 facetFilters: ['tags:guide,api']
             }
         },
+        nav: [
+            { text: '首页', link: '/' },
+            { text: '组件', link: '/guide/breadcrumb' },
+        ],
         sidebar: {
-            '/': [
+            '/guide/': [
                 {
-                    text:'HTML',
-                    children: [
-                        { text: '基础', link: '/HTML/' },
-                        { text: '进阶', link: '/HTML/advanced' },
-                    ],
-                    sidebarDepth:3
-                },
-                {
-                    text:'CSS',
-                    children:[
-                        { text: '基础', link: '/CSS/' },
-                        { text: '进阶', link: '/CSS/advanced' },
+                    text: '指引',
+                    items: [
+                        { text: '使用说明', link: '/guide/' }
                     ]
                 },
                 {
-                    text:'Javascript',
-                    children:[
-                        { text: '基础', link: '/Javascript/' },
-                        { text: '进阶', link: '/Javascript/advanced' },
-                        { text: '进阶', link: '/Javascript/nightmare' },
+                    text: '组件',
+                    items: [
+                        { text: 'Breadcrumb', link: '/guide/breadcrumb' },
+                        { text: 'Button', link: '/guide/button' },
+                        { text: 'Checkbox', link: '/guide/checkbox' },
+                        { text: 'Drawer', link: '/guide/drawer' },
+                        { text: 'DropTrigger', link: '/guide/dropTrigger' },
+                        { text: 'Dropdown', link: '/guide/dropdown' },
+                        { text: 'Form', link: '/guide/form' },
+                        { text: 'Input', link: '/guide/input' },
+                        { text: 'Message', link: '/guide/message' },
+                        { text: 'MiniLoading', link: '/guide/miniLoading' },
+                        { text: 'PopoverTip', link: '/guide/popoverTip' },
+                        { text: 'Select', link: '/guide/select' },
+                        { text: 'SidebarCustom', link: '/guide/sidebarCustom' },
+                        { text: 'Skeleton', link: '/guide/skeleton' },
+                        { text: 'Table', link: '/guide/table' },
+                        { text: 'TitleTip', link: '/guide/titleTip' },
                     ]
-                },
-                {
-                    text:'Vue',
-                    children:[
-                        { text: '基础', link: '/Vue/' },
-                        { text: '进阶', link: '/Vue/advanced' },
-                    ]
-                },
-                {
-                    text:'浏览器',
-                    children:[
-                        { text: '基础', link: '/Vue/' },
-                        { text: '进阶', link: '/Vue/advanced' },
-                    ]
-                },
-                {
-                    text:'网络',
-                    children:[
-                        { text: '基础', link: '/Network/' },
-                        { text: '进阶', link: '/Network/advanced' },
-                    ]
-                },
-                {
-                    text:'安全',
-                    children:[
-                        { text: '基础', link: '/Security/' },
-                        { text: '进阶', link: '/Security/advanced' },
-                    ]
-                },
-                {
-                    text:'面经',
-                    children:[
-                        { text: '基础', link: '/Experience/' },
-                        { text: '进阶', link: '/Experience/advanced' },
-                    ]
-                },
-            ]
+                }
+            ],
+        },
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2022-present Xiong Shuang'
         }
     },
     // 使用插件
@@ -90,3 +67,4 @@ export default {
         '@vuepress/nprogress',        //页面顶部进度条
     ]
 }
+

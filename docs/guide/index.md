@@ -1,0 +1,205 @@
+# 使用说明
+
+- github地址：https://github.com/xiongshuang/double-ui-vue
+
+### 安装
+- `npm i double-ui-vue`
+- `yarn add double-ui-vue`
+- `pnpm add double-ui-vue`
+
+### 按需引入
+- setup
+```js
+//<script setup>
+    import { Button } from 'double-ui-vue';
+//</script>
+
+// <template>
+//    <Button>按钮</Button>
+// </template>
+```
+- defineComponent
+```js
+//<script>
+    import { defineComponent } from 'vue';
+    import { Button } from 'double-ui-vue';
+
+    export default defineComponent({
+        name: 'TestHello',
+        components: { Button }
+    });
+//</script>
+
+// <template>
+//    <Button>按钮</Button>
+// </template>
+```
+
+- 在vite.config.js中配置（这里使用`vite-plugin-vue-import`按需加载插件，更多配置请访问 https://github.com/xiongshuang/vite-plugin-vue-import)
+```js
+import { defineConfig } from 'vite';
+import ViteComponentsImport from 'vite-plugin-vue-import';
+
+export default defineConfig({
+    // ...
+    plugins: [
+        ViteComponentsImport([
+            {
+                libName: 'double-ui-vue',
+                base: true
+            }
+        ])
+    ]
+    // ...
+})
+```
+
+### 主题颜色
+- double-ui-vue使用css var作为全局主题色变量，请拷贝下stylus文件到您项目中
+```stylus
+/* base-color -start */
+:root
+  /* base */
+  --white #fff
+  --black #000
+  --theme var(--white)
+  --theme-opacity rgba(255, 255, 255, .2)
+
+  /* 透明背景色 */
+  //--theme-transparency #646c73
+  --theme-transparency rgba(100, 108, 115, .5)
+
+  /* 蓝色 */
+  /* input、触发器、按钮在focus时的投影 */
+  --box-shadow-blue (0 0 0 2px rgba(0, 145, 255, .2))
+
+  /* 灰色 */
+  /* 下拉选择器、按钮盒子相关投影 */
+  /* 向上 */
+  --box-shadow-top (0 -2px 10px rgba(31, 35, 41, .1))
+  /* 向下 */
+  --box-shadow-bottom (0 2px 10px rgba(31, 35, 41, .1))
+  /* 向左 */
+  --box-shadow-left (-2px 0 10px rgba(31, 35, 41, .1))
+  /* 向右 */
+  --box-shadow-right (2px 0 10px rgba(31, 35, 41, .1))
+
+  /* 箭头相关投影 */
+  /* 向左 */
+  --box-shadow-min-top (-2px 2px 4px rgba(31, 35, 41, .1))
+  /* 向下 */
+  --box-shadow-min-bottom (2px -2px 4px rgba(31, 35, 41, .1))
+  /* 向左 */
+  --box-shadow-min-left (-2px -2px 4px rgba(31, 35, 41, .1))
+  /* 向左 */
+  --box-shadow-min-right (2px 2px 4px rgba(31, 35, 41, .1))
+
+  /* 向下 */
+  --box-shadow-max-bottom (0 8px 16px 0px rgba(0, 65, 115, .15))
+
+  /* 带三角形的盒子投影 */
+  /* 向上 */
+  --box-shadow-triangle-top (0 -2px 4px rgba(31, 35, 41, .1))
+  /* 向下 */
+  --box-shadow-triangle-bottom (0 2px 4px rgba(31, 35, 41, .1))
+  /* 向左 */
+  --box-shadow-triangle-left (-2px 0 4px rgba(31, 35, 41, .1))
+  /* 向右 */
+  --box-shadow-triangle-right (2px 0 4px rgba(31, 35, 41, .1))
+
+  /* 弹窗投影 */
+  --modal-shadow-bottom (0 20px 30px rgba(31, 35, 41, .15))
+
+  /* popover-tip-bg --grey-900 opacity 0.8 */
+  --popover-tip-bg rgba(31, 36, 41, .8)
+
+  /* table固定列投影 -s */
+  // 向左
+  --table-fixed-box-shadow-left (-10px 0 10px rgba(31, 35, 41, .1))
+  // 向右
+  --table-fixed-box-shadow-right (10px 0 10px rgba(31, 35, 41, .1))
+  /* table固定列投影 -e */
+
+  /*骨架屏*/
+  --skeleton-bg rgba(158, 158, 158, .1)
+
+  /* blue */
+  --blue-900 #0D47A1
+  --blue-800 #1565C0
+  --blue-700 #1976D2
+  --blue-600 #1E88E5
+  --blue-500 #2196F3
+  --blue-400 #42A5F5
+  --blue-300 #64B5F6
+  --blue-200 #90CAF9
+  --blue-100 #BBDEFB
+  --blue-50 #E3F2FD
+
+  /* cyan */
+  --cyan-900 #006064
+  --cyan-800 #00838F
+  --cyan-700 #0097A7
+  --cyan-600 #00ACC1
+  --cyan-500 #00BCD4
+  --cyan-400 #26C6DA
+  --cyan-300 #4DD0E1
+  --cyan-200 #80DEEA
+  --cyan-100 #B2EBF2
+  --cyan-50 #E0F7FA
+
+  /* green */
+  --green-900 #1B5E20
+  --green-800 #2E7D32
+  --green-700 #388E3C
+  --green-600 #43A047
+  --green-500 #4CAF50
+  --green-400 #66BB6A
+  --green-300 #81C784
+  --green-200 #A5D6A7
+  --green-100 #C8E6C9
+  --green-50 #E0F2F1
+
+  /* orange */
+  --orange-900 #E65100
+  --orange-800 #EF6C00
+  --orange-700 #F57C00
+  --orange-600 #FF9800
+  --orange-500 #FF9800
+  --orange-400 #FFA726
+  --orange-300 #FFB74D
+  --orange-200 #FFCC80
+  --orange-100 #FFE0B2
+  --orange-50 #FFF3E0
+
+  /* red */
+  --red-900 #B71C1C
+  --red-800 #C62828
+  --red-700 #D32F2F
+  --red-600 #E53935
+  --red-500 #F44336
+  --red-400 #EF5350
+  --red-300 #E57373
+  --red-200 #EF9A9A
+  --red-100 #FFCDD2
+  --red-50 #FFEBEE
+
+  /* grey */
+  --grey-900 #212121
+  --grey-800 #424242
+  --grey-700 #616161
+  --grey-600 #757575
+  --grey-500 #9E9E9E
+  --grey-400 #BDBDBD
+  --grey-300 #E0E0E0
+  --grey-200 #EEEEEE
+  --grey-100 #F5F5F5
+  --grey-50 #FAFAFA
+
+  /* hover-color */
+  --hover-color-blue var(--blue-100)
+  --hover-color-grey var(--grey-100)
+
+/* base-color -end */
+```
+
+- 若需自定义主题色，修改上面颜色值即可

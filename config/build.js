@@ -55,20 +55,19 @@ const start = async () => {
     for (const name of names) {
         const entryPath = components[name],
             outPath = firstToLowerCase(name);
-        console.log('=== Start packaging name ===', name);
         console.log('=== Start packaging ===', name, entryPath);
         await build({
             ...baseConfig(entryPath, outPath),
             build: {
                 rollupOptions,
-                minify: true,
-                // minify: 'esbuild',
+                // minify: true,
+                minify: 'esbuild',
                 lib: {
                     entry: entryPath,
                     name,
                     fileName: (format) => 'index.js',
-                    // formats: ['es', 'umd']
-                    formats: ['es']
+                    formats: ['es', 'umd']
+                    // formats: ['umd']
                 },
                 outDir: `es/${outPath}`
             }
