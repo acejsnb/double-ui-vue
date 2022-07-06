@@ -7,32 +7,35 @@
 - `yarn add double-ui-vue`
 - `pnpm add double-ui-vue`
 
+### 全局注册
+```js
+import Dui from 'double-ui-vue/es';
+// import 'double-ui-vue/es/base.css'; // 如果需要base，打开此行
+import 'double-ui-vue/es/index.css';
+app.use(Dui);
+```
+
 ### 按需引入
 - setup
 ```js
 //<script setup>
-    import { Button } from 'double-ui-vue';
+import { Button } from 'double-ui-vue';
 //</script>
-
-// <template>
-//    <Button>按钮</Button>
-// </template>
+```
+```html
+<Button>按钮</Button>
 ```
 - defineComponent
 ```js
 //<script>
-    import { defineComponent } from 'vue';
-    import { Button } from 'double-ui-vue';
+import { defineComponent } from 'vue';
+import { Button } from 'double-ui-vue';
 
-    export default defineComponent({
-        name: 'TestHello',
-        components: { Button }
-    });
+export default defineComponent({
+    name: 'TestHello',
+    components: { Button }
+});
 //</script>
-
-// <template>
-//    <Button>按钮</Button>
-// </template>
 ```
 
 - 在vite.config.js中配置（这里使用`vite-plugin-vue-import`按需加载插件，更多配置请访问 https://github.com/xiongshuang/vite-plugin-vue-import)
@@ -202,4 +205,6 @@ export default defineConfig({
 /* base-color -end */
 ```
 
-- 若需自定义主题色，修改上面颜色值即可
+::: tip
+若需自定义主题色，修改上面颜色值即可
+:::
