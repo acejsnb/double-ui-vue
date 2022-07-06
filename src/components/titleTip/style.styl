@@ -1,11 +1,16 @@
-.d-tooltip
+.d-title-tip
   position absolute
   z-index 700
   padding 8px 12px
   border 1px solid var(--grey-300)
   border-radius 4px
   box-shadow var(--box-shadow-bottom)
-  background-color var(--theme)
-  color var(--grey-900)
+  width max-content
   font-size 12px
   pointer-events none
+.d-title-tip-light
+  background-color var(--theme)
+  color var(--grey-900)
+.d-title-tip-dark
+  background-color var(--popover-tip-bg)
+  color var(--theme)

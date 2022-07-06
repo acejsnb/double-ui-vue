@@ -35,6 +35,8 @@ const BreadcrumbView = defineComponent({
 
                     <Breadcrumb data={breadData} v-model={breadId.value} />
                     <Breadcrumb data={breadData} onChange={change} />
+                    <Breadcrumb data={breadData} separator="-" onChange={change} />
+                    <Breadcrumb data={breadData} separator="/" onChange={change} />
                     {/* <Breadcrumb data={breadData} onChange={change} /> */}
                 </div>
             </div>

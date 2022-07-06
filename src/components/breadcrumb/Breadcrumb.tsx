@@ -4,10 +4,13 @@ import ArrowRight from '@/assets/iconSvg/arrow_right.svg';
 import TitleTip from '@/components/titleTip';
 import { Item } from './types';
 
-const ArrowRightDom = () => (
-    <article class="d-breadcrumb-arrow">
-        <ArrowRight />
-    </article>
+type SeparatorProps = {
+    separator: '-' | '/'
+}
+const SeparatorDom = ({ separator }: SeparatorProps) => (
+    <span class="d-breadcrumb-separator">
+        { separator ? separator : <ArrowRight /> }
+    </span>
 );
 
 const Breadcrumb = defineComponent({
@@ -30,6 +33,11 @@ const Breadcrumb = defineComponent({
             type: String,
             default: ''
         },
+        // 分隔符
+        separator: {
+            type: String as PropType<'-' | '/'>,
+            default: ''
+        },
         onChange: {
             type: Function as PropType<(id: string) => void>,
             default: () => {}
@@ -42,7 +50,7 @@ const Breadcrumb = defineComponent({
             else emit('change', id);
         };
         return () => {
-            const { data, modelValue } = props;
+            const { data, modelValue, separator } = props;
             return (
                 <div class="d-breadcrumb">
                     {data.map((item, i) => (
@@ -56,12 +64,12 @@ const Breadcrumb = defineComponent({
                                     'd-breadcrumb-item-width': i > 0 && i < props.data.length - 1,
                                     'd-breadcrumb-item-max-width': i === data.length - 1
                                 }}
-                                v-titletip={item.name}
+                                v-titletip
                                 onClick={() => breadcrumbClick(item.id)}
                             >
                                 {item.name}
                             </article>
-                            {i < data.length - 1 && <ArrowRightDom />}
+                            { i < data.length - 1 && <SeparatorDom separator={separator} /> }
                         </section>
                     ))}
                 </div>

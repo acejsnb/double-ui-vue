@@ -66,7 +66,8 @@ const start = async () => {
                     entry: entryPath,
                     name,
                     fileName: (format) => 'index.js',
-                    formats: ['es', 'umd']
+                    // formats: ['es', 'umd']
+                    formats: ['es']
                     // formats: ['umd']
                 },
                 outDir: `es/${outPath}`

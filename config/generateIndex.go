@@ -50,8 +50,7 @@ func main() {
 	var install = `const install = (app) => {
     Object.keys(components).forEach((name) => {
         if (name === 'Message') app.config.globalProperties.$message = Message;
-        else if (name === 'TitleTip')
-            app.directive('titletip', { mounted: TitleTip, beforeUnmount: TitleTip.remove });
+        else if (name === 'TitleTip') app.directive('titletip', { mounted: TitleTip, beforeUnmount: TitleTip.remove });
         else app.component(name, components[name]);
     });
 };`

@@ -1,10 +1,9 @@
-import { App, createApp } from 'vue';
-import TitleTipJsx from './TitleTip';
+import './style.styl';
 
 const GetWH = (text: string) => {
     const { body } = document;
     const div = document.createElement('div');
-    div.className = 'd-tooltip-box';
+    div.className = 'd-title-tip';
     div.style.opacity = '0';
     div.textContent = text;
     body.appendChild(div);
@@ -14,10 +13,14 @@ const GetWH = (text: string) => {
     return { w: clientWidth, h: clientHeight };
 };
 
+type Params = {
+    theme?: string
+    width?: string
+}
+
 let tipTop = 0;
 let tipLeft = 0;
 let dom: HTMLDivElement;
-let toolTipInstance: App<Element>;
 let timer: number = null;
 
 const TitleTip = (el: HTMLElement, binding: any) => {
@@ -28,26 +31,19 @@ const TitleTip = (el: HTMLElement, binding: any) => {
 		window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // 获取窗口的高度
     // 判断当用户点击时 鼠标所处的位置以及提示框与视框四周的距离
     el.onmouseenter = (e: MouseEvent) => {
-        const { value } = binding;
-        const target = e.target as HTMLElement;
-        const { clientWidth, scrollWidth } = target;
-        let maxWidth = '420';
-        let title: string;
-        if (value) {
-            // 如果有传入信息则用传入信息
-            const { width, text } = value;
-            if (text) title = text;
-            else title = value;
-            if (!text && title && clientWidth === scrollWidth) return;
-            if (width) maxWidth = width;
-        } else {
-            // 如果没有传入信息则获取目标元素的内容
-            if (clientWidth <= scrollWidth) return;
-            title = target.innerHTML.replace(reg, '');
-        }
         timer = window.setTimeout(() => {
-            dom = document.createElement('div');
-            document.body.appendChild(dom);
+            const target = e.target as HTMLElement;
+            const { clientWidth, scrollWidth } = target;
+            const { modifiers, value } = binding;
+            if (!value && clientWidth === scrollWidth) return;
+            const params: Params = {};
+            Object.keys(modifiers).forEach((d) => {
+                const [key, value] = d.split('@');
+                params[key] = value;
+            });
+            const maxWidth = params.width ?? '420',
+                theme = params.theme ?? 'light',
+                title = value ?? target.innerHTML.replace(reg, '');
 
             const { top, bottom, width, height } = target.getBoundingClientRect(); // 获取目标元素在页面中的位置
             const { w: tipW, h: tipH } = GetWH(title);
@@ -56,20 +52,20 @@ const TitleTip = (el: HTMLElement, binding: any) => {
             const checkTop = top > tipH - 4; // 检测屏幕上方是否有足够距离显示
             const checkBottom = winHeight - bottom > tipH - 4; // 检测屏幕下方是否有足够距离显示
 
-            if (disX < width / 2 && disY < height / 2) {
-                // 第一种情况 鼠标在左上方
+            // 第一种情况 鼠标在左上方
+            if ((disX < width / 2) && (disY < height / 2)) {
                 tipTop = checkTop ? top - (tipH - 4) : top + height - 4;
             }
             // 第二种情况 鼠标在右上方
-            if (disX > width / 2 && disY < height / 2) {
+            if ((disX > width / 2) && (disY < height / 2)) {
                 tipTop = checkTop ? top - (tipH - 4) : top + height - 4;
             }
             // 第三种情况 鼠标在左下方
-            if (disX < width / 2 && disY > height / 2) {
+            if ((disX < width / 2) && (disY > height / 2)) {
                 tipTop = checkBottom ? top + height - 4 : top - (tipH - 4);
             }
             // 第四种情况 鼠标在右下方
-            if (disX > width / 2 && disY > height / 2) {
+            if ((disX > width / 2) && (disY > height / 2)) {
                 tipTop = checkBottom ? top + height - 4 : top - (tipH - 4);
             }
             tipLeft = disX;
@@ -79,15 +75,16 @@ const TitleTip = (el: HTMLElement, binding: any) => {
             if (rw < w) tipLeft -= w - rw;
             const { pageYOffset, pageXOffset } = window;
 
-            toolTipInstance = createApp(TitleTipJsx, {
-                title,
-                left: tipLeft + pageXOffset,
-                top: tipTop + pageYOffset,
-                maxWidth
-            });
-            toolTipInstance.mount(dom);
+            dom = document.createElement('div');
+            dom.className = `d-title-tip d-title-tip-${theme}`;
+            dom.style.left = `${tipLeft + pageXOffset}px`;
+            dom.style.top = `${tipTop + pageYOffset}px`;
+            dom.style.maxWidth = `${maxWidth}px`;
+            dom.innerText = title;
+            document.body.appendChild(dom);
         }, 300);
     };
+
     const clearVm = () => {
         if (timer) {
             clearTimeout(timer);
@@ -95,13 +92,13 @@ const TitleTip = (el: HTMLElement, binding: any) => {
         }
         TitleTip.remove();
     };
-    el.onmouseleave = clearVm;
-    el.onmouseup = clearVm;
+
+    el.addEventListener('DOMNodeRemoved', clearVm);
+    el.addEventListener('mouseout', clearVm);
+    el.addEventListener('mousedown', clearVm);
 };
 TitleTip.remove = () => {
-    if (!toolTipInstance) return;
-    toolTipInstance.unmount();
-    document.body.removeChild(dom);
-    toolTipInstance = null;
+    dom && dom.parentNode.removeChild?.(dom);
+    dom = null;
 };
 export default TitleTip;
