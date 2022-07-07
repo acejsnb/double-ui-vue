@@ -44,6 +44,24 @@ export default defineConfig({
 ```
 - 更多 `vite-plugin-vue-import` 使用，请访问[vite-plugin-vue-import](https://github.com/xiongshuang/vite-plugin-vue-import)
 
+## webpack中使用
+- 安装 `babel-plugin-import`
+```js
+// babel.config.js
+module.exports = {
+    plugins: [
+        [
+            'import',
+            {
+                libraryName: 'double-ui-vue',
+                libraryDirectory: 'es',
+                style: (name) => `${name}/style.css`
+            }
+        ]
+    ]
+};
+```
+
 ## 启动说明
 
 -   npm run dev `启动开发预览`

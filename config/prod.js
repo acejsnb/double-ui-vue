@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 文本分离
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 清理垃圾文件
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const baseConfig = require('./base');
 
@@ -21,18 +20,6 @@ const config = {
 		assetModuleFilename: 'images/[name].[hash:5][ext][query]'
 	},
 	plugins: [
-		/*new CopyWebpackPlugin({
-			patterns: [
-				{
-					from: resolve(__dirname, '../node_modules/vue/dist/vue.global.prod.js'),
-					to: 'modules'
-				},
-				{
-					from: resolve(__dirname, '../node_modules/vue-router/dist/vue-router.global.prod.js'),
-					to: 'modules'
-				}
-			]
-		}),*/
 		new HtmlWebpackPlugin({
 			template: join(__dirname, '../src/index.html'), // 引入模版
 			favicon: join(__dirname, '../src/assets/favicon.ico'),
@@ -101,11 +88,6 @@ const config = {
 		}
 		// runtimeChunk: { name: 'runtime' } // 为每个入口提取出webpack runtime模块
 	},
-	/*externals: {
-		vue: 'Vue',
-		vuex: 'Vuex',
-		'vue-router': 'VueRouter'
-	},*/
 	target: ['web', 'es5']
 };
 

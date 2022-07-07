@@ -130,6 +130,10 @@ const config = {
 		})
 	],
 	bail: true, // 在第一个错误出现时抛出失败结果
+	externals: {
+		vue: 'Vue',
+		'vue-router': 'VueRouter'
+	},
 	target: 'web'
 };
 
