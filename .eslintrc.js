@@ -44,6 +44,7 @@ module.exports = {
     rules: {
         indent: ['error', 4],
         semi: [2, 'always'],
+        'quotes': [2, 'single'],
         'global-require': 0,
         'space-before-function-paren': 0,
         'no-plusplus': 0,
@@ -81,6 +82,15 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 0,
         '@typescript-eslint/ban-ts-comment': 1,
         'vue/require-valid-default-prop': 0,
-        'vue/html-indent': [1, 4]
+        'vue/html-indent': [1, 4],
+        'vue/singleline-html-element-content-newline': 0,
+        'vue/max-attributes-per-line': ['error', {
+            'singleline': {
+                'max': 1
+            },
+            'multiline': {
+                'max': 1
+            }
+        }]
     }
 };

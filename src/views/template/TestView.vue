@@ -1,5 +1,5 @@
 <template>
-  <div>{{ name }}</div>
+    <div>{{ name }}</div>
 <!--  <Breadcrumb :data="breadData" />-->
 </template>
 
