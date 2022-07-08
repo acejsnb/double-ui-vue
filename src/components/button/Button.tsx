@@ -7,11 +7,11 @@ const Button = defineComponent({
     name: 'DButton',
     props: {
         type: {
-            type: String,
+            type: String as PropType<'default' | 'blue' | 'word'>,
             default: 'default' // default blue word
         },
         size: {
-            type: String,
+            type: String as PropType<'large' | 'medium' | 'small'>,
             default: 'medium' // large medium small
         },
         disabled: {
