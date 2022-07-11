@@ -7,17 +7,6 @@ const Dts = require('vite-plugin-dts')
 
 const components = require('../src/components.ts');
 
-const firstToUpperCase = (str) => {
-    const arr = str.split('');
-    arr[0] = arr[0].toUpperCase()
-    return arr.join('')
-};
-const firstToLowerCase = (str) => {
-    const arr = str.split('');
-    arr[0] = arr[0].toLowerCase()
-    return arr.join('')
-};
-
 const parseName = (name) => {
     const str = name[0].toLowerCase() + name.substring(1);
     return str.replace(/([A-Z])/g, ($1) => `-${$1.toLowerCase()}`);
