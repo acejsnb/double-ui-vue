@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import TitleTip from '@/components/titleTip';
+import TitleTip from '@/components/title-tip';
 
 const vTitletip = TitleTip;
 

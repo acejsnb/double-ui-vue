@@ -1,5 +1,5 @@
 import './index.styl';
-import MiniLoading from '@/components/miniLoading/MiniLoading';
+import MiniLoading from '@/components/mini-loading/MiniLoading';
 
 import { defineComponent, PropType } from 'vue';
 

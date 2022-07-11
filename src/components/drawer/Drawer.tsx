@@ -11,7 +11,7 @@ import {
 } from 'vue';
 
 import IconClose from '@/assets/iconSvg/icon_close.svg';
-import MiniLoading from '../miniLoading/MiniLoading';
+import MiniLoading from '../mini-loading/MiniLoading';
 
 const Drawer = defineComponent({
     name: 'DDrawer',

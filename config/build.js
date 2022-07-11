@@ -18,6 +18,11 @@ const firstToLowerCase = (str) => {
     return arr.join('')
 };
 
+const parseName = (name) => {
+    const str = name[0].toLowerCase() + name.substring(1);
+    return str.replace(/([A-Z])/g, ($1) => `-${$1.toLowerCase()}`);
+}
+
 // vite基础配置
 const baseConfig = (entry, out) => defineConfig({
     mode: 'production',
@@ -54,8 +59,8 @@ const names = Object.keys(components)
 const start = async () => {
     for (const name of names) {
         const entryPath = components[name],
-            outPath = firstToLowerCase(name);
-        console.log('=== Start packaging ===', name, entryPath);
+            outPath = parseName(name);
+        console.log('=== Start packaging ===', name, entryPath, outPath);
         await build({
             ...baseConfig(entryPath, outPath),
             build: {

@@ -11,12 +11,12 @@ import Dropdown from './components/dropdown';
 import Form from './components/form';
 import Input from './components/input';
 import Message from './components/message';
-import PopoverTip from './components/popoverTip';
+import PopoverTip from './components/popover-tip';
 import Select from './components/select';
-import SelectScreen from './components/selectScreen';
-import SidebarCustom from './components/sidebarCustom';
+import SelectScreen from './components/select-screen';
+import SidebarCustom from './components/sidebar-custom';
 // import Table from './components/table/Table';
-import TitleTip from './components/titleTip';
+import TitleTip from './components/title-tip';
 // import Tree from './components/tree/Tree';
 
 const components: Component = {

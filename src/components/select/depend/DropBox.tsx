@@ -13,7 +13,7 @@ import {
 import { textEllipsis } from 'js-func-tools';
 import ClickOutside from '@/utils/ClickOutside';
 import RegHtml from '@/utils/RegTools';
-import SelectCheckbox from '@/components/selectCheckbox/SelectCheckbox';
+import SelectCheckbox from '@/components/select-checkbox/SelectCheckbox';
 import { Item } from '../types';
 
 export interface IDBState {

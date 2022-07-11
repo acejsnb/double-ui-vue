@@ -13,7 +13,7 @@ import {
 import FilterSvg from '@/assets/iconSvg/filter.svg';
 import TriangleSvg from '@/assets/iconSvg/triangle.svg';
 
-import PopoverTip from '@/components/popoverTip/PopoverTip';
+import PopoverTip from '@/components/popover-tip/PopoverTip';
 import DropPanel, { Item, Instance } from './depend/dropPanel';
 
 export interface IState {

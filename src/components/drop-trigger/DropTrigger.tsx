@@ -16,7 +16,7 @@ import TriangleIcon from '@/assets/iconSvg/triangle.svg';
 import DeleteIcon from '@/assets/iconSvg/delete_icon.svg';
 import CloseIcon from '@/assets/iconSvg/icon_close.svg';
 import GetScrollbarWidth from '@/utils/GetScrollbarWidth';
-import PopoverTip from '@/components/popoverTip/PopoverTip';
+import PopoverTip from '@/components/popover-tip/PopoverTip';
 import GetCaptionWidth from './GetCaptionWidth';
 import GetPopoverContent, { Item } from './GetPopoverContent';
 

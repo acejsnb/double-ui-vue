@@ -1,6 +1,6 @@
 import './style.styl';
 import { PropType, defineComponent, reactive, ref, watch, toRaw } from 'vue';
-import DropTrigger from '@/components/dropTrigger/DropTrigger';
+import DropTrigger from '@/components/drop-trigger/DropTrigger';
 import { Item, IState } from './types';
 
 import AddClassNameForText, { GetSameItem } from './depend/AddClassNameForText';

@@ -1,7 +1,7 @@
 import './style.styl';
 import { PropType, defineComponent } from 'vue';
 import ArrowRight from '@/assets/iconSvg/arrow_right.svg';
-import TitleTip from '@/components/titleTip';
+import TitleTip from '@/components/title-tip';
 import { Item } from './types';
 
 type SeparatorProps = {
