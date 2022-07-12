@@ -3,10 +3,7 @@ module.exports = {
         [
             '@babel/preset-env',
             {
-                loose: true,
-                modules: false,
-                useBuiltIns: 'usage',
-                corejs: 3
+                targets: 'defaults'
             }
         ],
         [
@@ -19,7 +16,7 @@ module.exports = {
     ],
     plugins: [
         ['@vue/babel-plugin-jsx', { optimize: true, transformOn: true }],
-        ['@babel/plugin-transform-runtime', { corejs: { version: 3, proposals: true } }]
+        '@babel/plugin-transform-runtime'
         // '@babel/plugin-transform-modules-commonjs'
     ]
 };
