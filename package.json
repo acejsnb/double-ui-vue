@@ -83,7 +83,7 @@
 		"html-webpack-plugin": "^5.5.0",
 		"jest": "^28.1.1",
 		"jest-transform-stub": "^2.0.0",
-		"js-func-tools": "^1.0.9",
+		"js-func-tools": "^1.1.2",
 		"mini-css-extract-plugin": "^2.6.1",
 		"postcss": "^8.4.14",
 		"postcss-loader": "^7.0.0",

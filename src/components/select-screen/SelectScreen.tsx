@@ -1,3 +1,5 @@
+import { getObjType } from 'js-func-tools';
+
 import './style.styl';
 import {
     PropType,
@@ -60,6 +62,7 @@ const SelectScreen = defineComponent({
             default: () => {}
         }
     },
+    emits: ['change'],
     setup(props, { emit }) {
         const state = reactive<IState>({
             dropBoxStatus: false, // 下拉列表展开状态
@@ -75,14 +78,16 @@ const SelectScreen = defineComponent({
         const tableLayoutMain = inject('tableLayoutMain');
 
         // 选中的name
-        const selectedName = computed(() => {
+        const selectedName = computed<string>(() => {
             const { status } = props;
             const { singleName, selectedData } = state;
             if (status.includes('single')) return singleName;
-            const selectedNameArr: string[] = [];
-            selectedData.forEach((d: Item) => {
-                selectedNameArr.push(d.name);
-            });
+            let selectedNameArr: string[] = [];
+            if (getObjType(selectedData) === 'Array') {
+                selectedNameArr = selectedData.map((d: Item) => d.name);
+            } else {
+                selectedNameArr = [(selectedData as Item).name];
+            }
             return selectedNameArr.toString().replace(/,/g, '、');
         });
 
@@ -103,10 +108,7 @@ const SelectScreen = defineComponent({
                 const { name = '' } = data.find((d) => d.id === id) || {};
                 state.singleName = name;
             } else {
-                state.selectedData = data.filter((d) => {
-                    if (d.checked === 'checked') return d;
-                    return null;
-                });
+                state.selectedData = data.filter((d) => d.checked === 'checked').filter(Boolean);
             }
             state.dropData = data;
         };
@@ -192,7 +194,7 @@ const SelectScreen = defineComponent({
 
         onBeforeUnmount(() => {
             setDropdownStatus(false);
-            dropPanel.remove();
+            dropPanel?.remove();
             if (parentScroll) parentScroll.removeEventListener('scroll', listenScroll);
             window.removeEventListener('scroll', listenScroll);
         });
@@ -212,7 +214,7 @@ const SelectScreen = defineComponent({
                     <PopoverTip
                         tag={refTrigger}
                         countTag={refTrigger}
-                        content={selectedName}
+                        content={selectedName.value}
                         dropShow={dropBoxStatus}
                     >
                         <i

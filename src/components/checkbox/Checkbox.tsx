@@ -42,7 +42,7 @@ const Checkbox = defineComponent({
             if (checked === 'checked') status = 'uncheck';
             else status = 'checked';
 
-            if (vnode.props.onChange) emit('change', status, attr);
+            if (vnode.props.onChange) emit('change', status, attr, e);
             else emit('update:checked', status);
         };
         return { handleChange };

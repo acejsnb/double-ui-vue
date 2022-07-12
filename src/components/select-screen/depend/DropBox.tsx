@@ -170,7 +170,8 @@ const DropBox = defineComponent({
             state.dropBoxStatus = false;
         };
         // checkbox状态改变
-        const checkboxChange = (v: string, i: string | number) => {
+        const checkboxChange = (v: string, i: string | number, e: MouseEvent) => {
+            e.stopPropagation();
             const { dropData } = state;
             const dData = dropData.map((d, ind) => {
                 if (Number(i) === ind) d.checked = v;
@@ -264,6 +265,7 @@ const DropBox = defineComponent({
                         <div class="d-drop-box-list">
                             {dropData.map((item, i) => (
                                 <div
+                                    key={`item-${item.id}-${i}`}
                                     class={[
                                         'd-drop-box-item',
                                         status.includes('multiple') && 'd-drop-box-item-checkbox',
@@ -271,7 +273,6 @@ const DropBox = defineComponent({
 											selectedId === item.id &&
 											'd-drop-box-ited-selected'
                                     ]}
-                                    key={`item-${item.id}-${i}`}
                                 >
                                     {status.includes('multiple')
                                         ? (

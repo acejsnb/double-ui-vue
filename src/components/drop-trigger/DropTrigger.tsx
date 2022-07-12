@@ -339,14 +339,14 @@ const DropTrigger = defineComponent({
                                                                         class="d-drop-trigger-selected-m"
                                                                         ref={tag}
                                                                     >
-															已选择
+															            已选择
                                                                         <span
                                                                             class="d-drop-trigger-selected-m-c"
                                                                             ref={countTag}
                                                                         >
                                                                             {(selectedData as Item[]).length}
                                                                         </span>
-															项
+															            项
                                                                     </span>
                                                                 </PopoverTip>
                                                             )

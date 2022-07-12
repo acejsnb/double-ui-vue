@@ -29,7 +29,7 @@ const TipModal = defineComponent({
         },
         // 内容
         content: {
-            type: Object as PropType<string | Ref<string>>,
+            type: String as PropType<string | Ref<string>>,
             default: ''
         },
         // 是否通过拆分渲染内容
