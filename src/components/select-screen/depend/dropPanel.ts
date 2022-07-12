@@ -19,8 +19,7 @@ const resetPosition = (instance: Instance) => {
         trigger: tagEle,
         dom: el as HTMLElement
     });
-    // @ts-ignore
-    vm.type.state.position = isDown;
+    vm.component.exposeProxy.state.position = isDown;
     // 设置位置
     el.style.top = `${top}px`;
     el.style.left = `${left}px`;
@@ -42,8 +41,7 @@ const DropPanel = (options: Options) => {
         vm,
         tag,
         setShow(show: boolean) {
-            // @ts-ignore
-            vm.type.state.dropBoxStatus = show;
+            vm.component.exposeProxy.state.dropBoxStatus = show;
         },
         resetPosition() {
             resetPosition(instance);

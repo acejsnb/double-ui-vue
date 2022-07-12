@@ -54,7 +54,7 @@ const DropBox = defineComponent({
             default: () => {}
         }
     },
-    setup(props) {
+    setup(props, { expose }) {
         const state = reactive({
             position: true, // 动画执行方向
             dropBoxStatus: false, // 下拉面板状态
@@ -65,7 +65,7 @@ const DropBox = defineComponent({
             dropData: [], // 下拉面板数据
             confirmClicked: false // 点击过确定
         });
-        DropBox.state = state;
+        expose({ state });
 
         const { proxy }: any = getCurrentInstance();
 

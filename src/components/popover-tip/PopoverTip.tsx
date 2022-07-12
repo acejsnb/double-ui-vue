@@ -23,7 +23,7 @@ const PopoverTip = defineComponent({
         },
         // 内容
         content: {
-            type: String || (Object as PropType<Ref<string>>),
+            type: Object as PropType<string | Ref<string>>,
             default: ''
         },
         // 是否通过拆分渲染内容
@@ -108,7 +108,6 @@ const PopoverTip = defineComponent({
         });
 
         return () => (
-            // <div class="m-popover" onMouseenter={mouseEnter} onMouseleave={mouseLeave}>
             <span onMouseenter={mouseEnter} onMouseleave={mouseLeave}>
                 {slots.default()}
             </span>

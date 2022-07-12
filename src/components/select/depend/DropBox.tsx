@@ -73,14 +73,14 @@ const DropBox = defineComponent({
             default: () => {}
         }
     },
-    setup(props) {
+    setup(props, { expose }) {
         const state = reactive<IDBState>({
             confirmDisable: true, // 确定按钮禁用
             selectedData: [], // 选中的数据
             selectedDataHistory: [], // 选中的历史数据
             dropData: []
         });
-        DropBox.state = state;
+        expose({ state });
         const { proxy }: any = getCurrentInstance();
 
         watch(

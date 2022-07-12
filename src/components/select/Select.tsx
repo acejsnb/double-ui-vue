@@ -233,10 +233,8 @@ const Select = defineComponent({
                 emit('change', [], []);
             }
             if (dropBox) {
-                // @ts-ignore
-                dropBox.vm.type.state.selectedData = [];
-                // @ts-ignore
-                dropBox.vm.type.state.selectedDataHistory = [];
+                dropBox.vm.component.exposeProxy.state.selectedData = [];
+                dropBox.vm.component.exposeProxy.state.selectedDataHistory = [];
             }
         };
 

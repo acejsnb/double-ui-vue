@@ -13,7 +13,7 @@ import {
 import FilterSvg from '@/assets/iconSvg/filter.svg';
 import TriangleSvg from '@/assets/iconSvg/triangle.svg';
 
-import PopoverTip from '@/components/popover-tip/PopoverTip';
+import PopoverTip from '@/components/popover-tip';
 import DropPanel, { Item, Instance } from './depend/dropPanel';
 
 export interface IState {
@@ -134,8 +134,7 @@ const SelectScreen = defineComponent({
         const setDropdownStatus = (status: boolean) => {
             state.dropBoxStatus = status;
             if (dropPanel) {
-                // @ts-ignore
-                dropPanel.vm.type.state.dropBoxStatus = status;
+                dropPanel.vm.component.exposeProxy.state.dropBoxStatus = status;
                 if (status) dropPanel.resetPosition();
             }
         };

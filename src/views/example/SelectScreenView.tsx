@@ -1,6 +1,6 @@
 import { defineComponent, reactive, provide } from 'vue';
 
-import SelectScreen from '@/components/select-screen/SelectScreen';
+import SelectScreen from '@/components/select-screen';
 
 interface IItem {
 	id: string;
