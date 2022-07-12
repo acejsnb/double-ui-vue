@@ -17,8 +17,7 @@ const Breadcrumb = defineComponent({
     name: 'DBreadcrumb',
     directives: {
         titletip: {
-            mounted: TitleTip,
-            beforeUnmount: TitleTip.remove
+            mounted: TitleTip
         }
     },
     props: {
