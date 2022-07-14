@@ -37,9 +37,9 @@
                     <template
                         v-for="k in Object.keys(slots)"
                         #[k]="{body}"
+                        :key="k"
                     >
                         <slot
-                            :key="k"
                             :name="k"
                             :item="body"
                         />

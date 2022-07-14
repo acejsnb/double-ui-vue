@@ -1,21 +1,45 @@
 <template>
-    <table class="x-table-body" :style="width && { width: `${width}px` }" ref="bodyRef">
+    <table
+        ref="bodyRef"
+        class="x-table-body"
+        :style="width && { width: `${width}px` }"
+    >
         <colgroup>
-            <col v-for="c in colsWidth" :key="c.id" :width="c.w">
+            <col
+                v-for="c in colsWidth"
+                :key="c.id"
+                :width="c.w"
+            >
         </colgroup>
         <tbody>
-            <tr class="x-table-tr x-table-body_row" v-for="d in data" :key="d.id">
-                <td class="x-table-td"
+            <tr
+                v-for="d in data"
+                :key="d.id"
+                class="x-table-tr x-table-body_row"
+            >
+                <td
                     v-for="h in column"
+                    :key="h.key"
+                    class="x-table-td"
                     :class="[
                         (h.fixed === 'left' && scrollLeftValue) && 'x-table-td-fixed_left',
                         (h.fixed === 'right' && fixedRight) && 'x-table-td-fixed_right'
                     ]"
-                    :key="h.key"
                 >
-                    <template v-if="h.slot"><slot :name="h.key" :body="toRaw(d)" /></template>
-                    <div v-else class="x-table-col x-body-col">
-                        <span class="x-body-text" @mouseenter="setHtmlTagTitle">{{d[h.key]}}</span>
+                    <template v-if="h.slot">
+                        <slot
+                            :name="h.key"
+                            :body="toRaw(d)"
+                        />
+                    </template>
+                    <div
+                        v-else
+                        class="x-table-col x-body-col"
+                    >
+                        <span
+                            class="x-body-text"
+                            @mouseenter="setHtmlTagTitle"
+                        >{{ d[h.key] }}</span>
                     </div>
                 </td>
             </tr>

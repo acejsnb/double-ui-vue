@@ -1,19 +1,31 @@
 <template>
-    <table class="x-table-header" :style="width && { width: `${width}px` }">
+    <table
+        class="x-table-header"
+        :style="width && { width: `${width}px` }"
+    >
         <colgroup>
-            <col v-for="c in colsWidth" :key="c.id" :width="c.w">
+            <col
+                v-for="c in colsWidth"
+                :key="c.id"
+                :width="c.w"
+            >
         </colgroup>
         <thead>
             <tr class="x-table-tr x-table-header_row">
-                <td class="x-table-td"
-                    v-for="h in data" :key="h.key"
+                <td
+                    v-for="h in data"
+                    :key="h.key"
+                    class="x-table-td"
                     :class="[
                         (h.fixed === 'left' && scrollLeftValue) && 'x-table-td-fixed_left',
                         (h.fixed === 'right' && fixedRight) && 'x-table-td-fixed_right'
                     ]"
                 >
-                    <div class="x-table-col x-header-col" @mouseenter="setHtmlTagTitle">
-                        {{h.text}}
+                    <div
+                        class="x-table-col x-header-col"
+                        @mouseenter="setHtmlTagTitle"
+                    >
+                        {{ h.text }}
                     </div>
                 </td>
             </tr>
