@@ -35,7 +35,7 @@ func main() {
 	for _, file := range files {
 		fileName := file.Name()
 		if !(strings.Contains(fileName, "base") || strings.Contains(fileName, "index")) {
-			componentName := strFirstToUpper(fileName)
+			componentName := Case2Camel(fileName)
 			css += fmt.Sprintf("@import './%v/style.css';\n", fileName)
 			jsImport += fmt.Sprintf("import %v from './%v';\n", componentName, fileName)
 			tsImport += fmt.Sprintf("export { default as %v } from './%v';\n", componentName, fileName)
@@ -103,8 +103,8 @@ func copyFile(pwd string) {
 	}
 }
 
-func strFirstToUpper(str string) string {
-	slice := strings.Split(str, "")
-	slice[0] = strings.ToUpper(slice[0])
-	return strings.Join(slice, "")
+func Case2Camel(name string) string {
+	name = strings.Replace(name, "-", " ", -1)
+	name = strings.Title(name)
+	return strings.Replace(name, " ", "", -1)
 }
