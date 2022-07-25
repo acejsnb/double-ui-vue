@@ -91,9 +91,6 @@ const DropBox = defineComponent({
                 if (n || confirmDisable) return;
                 setTimeout(() => {
                     state.selectedData = JSON.parse(JSON.stringify(selectedDataHistory));
-                    /* state[props.multiple ? 'selectedData' : 'selectedItem'] = JSON.parse(
-						JSON.stringify(selectedDataHistory)
-					); */
                     state.confirmDisable = true;
                     const ids = selectedDataHistory.map((d: Item) => d.id);
                     state.dropData = props.data.map((d: Item) => {
