@@ -1,7 +1,7 @@
 <template>
-  <div class="skeleton">
-    <Skeleton active />
-  </div>
+    <div class="skeleton">
+        <Skeleton active />
+    </div>
 </template>
 
 <script lang="ts" setup>

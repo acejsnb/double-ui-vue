@@ -1,6 +1,6 @@
 <template>
-  <div class="view-box">
-    <!--        <h2 class="view-title">1.default</h2>
+    <div class="view-box">
+        <!--        <h2 class="view-title">1.default</h2>
         <TableGrid
             border
             :column="column0"
@@ -11,25 +11,25 @@
             </template>
         </TableGrid>
         <br><br><br>-->
-    <h2 class="view-title">
-      2.fixed + width
-    </h2>
-    <TableGrid
-      :width="2000"
-      :height="500"
-      :column="column0"
-      :data="data0"
-    >
-      <template #handle="{item}">
-        <div
-          class="cus-handle"
-          @click="cusHandle(item)"
+        <h2 class="view-title">
+            2.fixed + width
+        </h2>
+        <TableGrid
+            :width="2000"
+            :height="500"
+            :column="column0"
+            :data="data0"
         >
-          编辑
-        </div>
-      </template>
-    </TableGrid>
-    <br><br><br>
+            <template #handle="{item}">
+                <div
+                    class="cus-handle"
+                    @click="cusHandle(item)"
+                >
+                    编辑
+                </div>
+            </template>
+        </TableGrid>
+        <br><br><br>
     <!--        <h2 class="view-title">3.slot + width</h2>
         <div style="width: 500px">
             <TableGrid
@@ -42,7 +42,7 @@
                 </template>
             </TableGrid>
         </div>-->
-  </div>
+    </div>
 </template>
 
 <script lang="ts" setup>

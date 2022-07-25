@@ -1,12 +1,12 @@
 <template>
-  <div class="x-skeleton">
-    <section
-      v-for="item in list"
-      :key="item"
-      :class="['x-skeleton-item', active && 'x-skeleton-active']"
-      :style="styleHeight"
-    />
-  </div>
+    <div class="x-skeleton">
+        <section
+            v-for="item in list"
+            :key="item"
+            :class="['x-skeleton-item', active && 'x-skeleton-active']"
+            :style="styleHeight"
+        />
+    </div>
 </template>
 
 <script lang="ts" setup>
