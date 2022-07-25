@@ -22,7 +22,7 @@ const setColsWidth: SetColsWidth = (column, width, border, tableGridRef) => {
     // 余宽
     const remWidth = totalWidth % len;
     let cols: Array<ColWidthItem> = Array.from(
-        new Array(len - 1),
+        { length: len - 1 },
         () => ({ id: uuid(5), w: aveWidth })
     );
     cols.push({ id: uuid(5), w: aveWidth + remWidth });

@@ -27,7 +27,7 @@ const props = defineProps({
         default: false
     }
 });
-const list = computed(() => Array.from(new Array(props.count)).map(() => uuid(7)));
+const list = computed(() => Array.from({ length: props.count }).map(() => uuid(7)));
 const styleHeight = computed(() => props.height ? { height: `${props.height}px` } : null);
 </script>
 

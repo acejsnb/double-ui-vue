@@ -74,7 +74,7 @@ export const bodyData0 = [
 ];
 
 const bodyData1: any = [];
-Array.from(new Array(100)).forEach(() => {
+Array.from({ length: 100 }).forEach(() => {
     bodyData1.push(...cloneDeep(bodyData0).map((d) => {
         d.id = uuid(8);
         return d;
