@@ -51,7 +51,8 @@ const DropBox = defineComponent({
         },
         // 选中的id
         selectedId: {
-            type: [String, Array]
+            type: [String, Array],
+            default: '' || []
         },
         data: {
             type: Array as PropType<Item[] | []>,
