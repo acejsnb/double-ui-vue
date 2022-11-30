@@ -5,6 +5,7 @@ node_modules/
 /es/
 /lib/
 /dist/
+/production/
 /docs/.vitepress/components/
 
 package-lock.json
