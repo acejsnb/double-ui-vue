@@ -53,7 +53,7 @@ const Button = defineComponent({
                 >
                     <section class="d-button-content">
                         {loading && <span class="d-button-loading"><MiniLoading/></span>}
-                        <span class="d-button-text">{slots.default && slots.default()}</span>
+                        <span class="d-button-text">{slots.default?.()}</span>
                     </section>
                 </button>
             );
